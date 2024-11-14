@@ -7,22 +7,22 @@ import com.example.posttemplate.domain.models.User
 import com.example.posttemplate.utils.fail
 
 
-fun PostDto.toDomain(user: User): Post {
+fun PostDto.toDomain(authorId: Int): Post {
     return Post(
         id = this.id,
         title = this.title ?: fail("Title is missing"),
-        body = this.content ?: fail("Content is missing"),
-        author = user.fullName
+        body = this.body ?: "",
+        authorId = authorId
     )
 }
 
 // Convert PostEntity to Post domain model
-fun PostEntity.toDomain(user: User): Post {
+fun PostEntity.toDomain(authorId: Int): Post {
     return Post(
         id = this.id,
         title = this.title,
         body = this.content,
-        author = user.fullName
+        authorId = authorId
     )
 }
 

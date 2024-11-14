@@ -27,15 +27,15 @@ private class PostServiceImpl(
     override suspend fun getPosts(): Either<Throwable, List<Post>> = check {
         val postsDto = postRepository.getPosts().getOrHandle { throw it }
         postsDto.map { postDto ->
-            val user = fetchUser(postDto.authorId)?.toDomain() ?: fail("Author not found")
-            postDto.toDomain(user)
+//            val user = fetchUser(postDto.userId)?.toDomain() ?: fail("Author not found")
+            postDto.toDomain(postDto.userId)
         }
     }
 
     override suspend fun getPostById(id: Int): Either<Throwable, Post> = check {
         val postDto = postRepository.getPostById(id).getOrHandle { throw it }
-        val user = fetchUser(postDto.authorId)?.toDomain() ?: fail("Author not found")
-        postDto.toDomain(user)
+//        val user = fetchUser(postDto.userId)?.toDomain() ?: fail("Author not found")
+        postDto.toDomain(postDto.userId)
     }
 
     private suspend fun fetchUser(authorId: Int) =

@@ -5,6 +5,7 @@ import com.example.posttemplate.data.local.PostDao
 import com.example.posttemplate.data.local.UserDao
 import com.example.posttemplate.data.local.create
 import com.example.posttemplate.data.remote.ApiService
+import com.example.posttemplate.data.remote.NetworkClient
 import com.example.posttemplate.data.repository.PostRepository
 import com.example.posttemplate.data.repository.UserRepository
 import com.example.posttemplate.domain.services.PostService
@@ -13,8 +14,6 @@ import com.example.posttemplate.ui.screens.home.HomeViewModel
 import com.example.posttemplate.ui.screens.profile.ProfileViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 val appModule = module {
     single<AppDatabase> { AppDatabase.create() }
@@ -22,13 +21,8 @@ val appModule = module {
     single<PostDao> { get<AppDatabase>().postDao() }
     single<UserDao> { get<AppDatabase>().userDao() }
 
-    single {
-        Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-    single<ApiService> { get<Retrofit>().create(ApiService::class.java) }
+
+    single<ApiService> { NetworkClient.apiService }
 
     // Repositories
     single { PostRepository.create(get(), get()) }

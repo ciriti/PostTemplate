@@ -54,4 +54,4 @@ private class PostRepositoryImpl(
 // Extension Functions for Entity <-> DTO Conversions
 private fun PostEntity.toDto(): PostDto = PostDto(id, title, content, authorId)
 
-private fun PostDto.toEntity(): PostEntity = PostEntity(id, title ?: "", content ?: "", authorId)
+private fun PostDto.toEntity(): PostEntity = PostEntity(id, title ?: "", body ?: "", userId)
