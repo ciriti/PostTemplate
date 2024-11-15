@@ -75,6 +75,8 @@ dependencies {
 
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
+    implementation(libs.androidx.preference)
+
     testImplementation("io.insert-koin:koin-test:4.0.0")
     // Koin for JUnit 4
     testImplementation("io.insert-koin:koin-test-junit4:4.0.0")
