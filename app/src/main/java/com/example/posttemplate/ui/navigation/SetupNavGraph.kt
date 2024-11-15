@@ -11,6 +11,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.example.posttemplate.ui.components.TopAppBar
 import com.example.posttemplate.ui.screens.auth.AuthenticationIntent
@@ -26,8 +27,12 @@ import org.koin.compose.koinInject
 
 @Composable
 fun SetupNavGraph(startDestination: String, navController: NavHostController) {
+    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+
     Scaffold(
-        topBar = { TopAppBar(navController) }
+        topBar = {
+            if (currentRoute != Route.Authentication.route) TopAppBar(navController)
+        }
     ) { innerPadding ->
         NavHost(
             startDestination = startDestination,
