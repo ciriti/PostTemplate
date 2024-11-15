@@ -10,6 +10,7 @@ import com.example.posttemplate.data.repository.PostRepository
 import com.example.posttemplate.data.repository.UserRepository
 import com.example.posttemplate.domain.services.PostService
 import com.example.posttemplate.domain.services.UserService
+import com.example.posttemplate.ui.screens.auth.AuthenticationViewModel
 import com.example.posttemplate.ui.screens.home.HomeViewModel
 import com.example.posttemplate.ui.screens.profile.ProfileViewModel
 import org.koin.core.module.dsl.viewModel
@@ -35,4 +36,5 @@ val appModule = module {
     // ViewModels
     viewModel { HomeViewModel(service = get()) }
     viewModel { ProfileViewModel(service = get()) }
+    viewModel { AuthenticationViewModel() }
 }

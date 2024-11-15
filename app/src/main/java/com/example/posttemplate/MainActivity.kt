@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             AppTheme {
                 val navController = rememberNavController()
                 SetupNavGraph(
-                    startDestination = Route.Home.route,
+                    startDestination = Route.Authentication.route,
                     navController = navController
                 )
             }

@@ -13,8 +13,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.posttemplate.ui.components.TopAppBar
-import com.example.posttemplate.ui.screens.home.*
-import com.example.posttemplate.ui.screens.profile.*
+import com.example.posttemplate.ui.screens.auth.AuthenticationIntent
+import com.example.posttemplate.ui.screens.auth.AuthenticationScreen
+import com.example.posttemplate.ui.screens.auth.AuthenticationViewModel
+import com.example.posttemplate.ui.screens.home.HomeIntent
+import com.example.posttemplate.ui.screens.home.HomeScreen
+import com.example.posttemplate.ui.screens.home.HomeViewModel
+import com.example.posttemplate.ui.screens.profile.ProfileIntent
+import com.example.posttemplate.ui.screens.profile.ProfileScreen
+import com.example.posttemplate.ui.screens.profile.ProfileViewModel
 import org.koin.compose.koinInject
 
 @Composable
@@ -27,9 +34,27 @@ fun SetupNavGraph(startDestination: String, navController: NavHostController) {
             navController = navController,
             modifier = Modifier.padding(innerPadding)
         ) {
+            authenticationRoute(navController)
             homeRoute(navController)
             profileRoute()
         }
+    }
+}
+
+fun NavGraphBuilder.authenticationRoute(navController: NavHostController) {
+    composable(route = Route.Authentication.route) {
+        val viewModel = koinInject<AuthenticationViewModel>()
+        AuthenticationScreen(
+            loadingState = viewModel.state.collectAsState().value.isLoading,
+            onButtonClicked = {
+                viewModel.handleIntent(AuthenticationIntent.Authenticate)
+            },
+            navigateToHome = {
+                navController.navigate(Route.Home.route) {
+                    popUpTo(Route.Authentication.route) { inclusive = true }
+                }
+            }
+        )
     }
 }
 
