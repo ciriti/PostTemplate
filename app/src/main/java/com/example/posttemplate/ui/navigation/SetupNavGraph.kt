@@ -1,26 +1,35 @@
 package com.example.posttemplate.ui.navigation
 
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.posttemplate.ui.components.TopAppBar
 import com.example.posttemplate.ui.screens.home.*
 import com.example.posttemplate.ui.screens.profile.*
 import org.koin.compose.koinInject
 
 @Composable
 fun SetupNavGraph(startDestination: String, navController: NavHostController) {
-    NavHost(
-        startDestination = startDestination,
-        navController = navController
-    ) {
-        homeRoute(navController)
-        profileRoute()
+    Scaffold(
+        topBar = { TopAppBar(navController) }
+    ) { innerPadding ->
+        NavHost(
+            startDestination = startDestination,
+            navController = navController,
+            modifier = Modifier.padding(innerPadding)
+        ) {
+            homeRoute(navController)
+            profileRoute()
+        }
     }
 }
 

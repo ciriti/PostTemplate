@@ -3,14 +3,13 @@ package com.example.posttemplate.domain.extensions
 import com.example.posttemplate.data.local.PostEntity
 import com.example.posttemplate.data.models.PostDto
 import com.example.posttemplate.domain.models.Post
-import com.example.posttemplate.domain.models.User
 import com.example.posttemplate.utils.fail
 
 
 fun PostDto.toDomain(authorId: Int): Post {
     return Post(
         id = this.id,
-        title = this.title ?: fail("Title is missing"),
+        title = this.title ?: "Title is missing".fail(),
         body = this.body ?: "",
         authorId = authorId
     )

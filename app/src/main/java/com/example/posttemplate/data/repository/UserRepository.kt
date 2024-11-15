@@ -1,8 +1,12 @@
 package com.example.posttemplate.data.repository
 
 import arrow.core.Either
+import com.example.posttemplate.data.local.AddressEntity
+import com.example.posttemplate.data.local.CompanyEntity
 import com.example.posttemplate.data.local.UserDao
 import com.example.posttemplate.data.local.UserEntity
+import com.example.posttemplate.data.models.AddressDto
+import com.example.posttemplate.data.models.CompanyDto
 import com.example.posttemplate.data.models.UserDto
 import com.example.posttemplate.data.remote.ApiService
 import com.example.posttemplate.utils.check
@@ -37,6 +41,61 @@ private class UserRepositoryImpl(
 }
 
 // Extension Functions for Entity <-> DTO Conversions
-private fun UserEntity.toDto(): UserDto = UserDto(id, name, email)
+fun UserEntity.toDto(): UserDto {
+    return UserDto(
+        id = this.id,
+        name = this.name.ifEmpty { null },
+        email = this.email.ifEmpty { null },
+        address = this.address?.toDto(),
+        phone = this.phone.ifEmpty { null },
+        website = this.website.ifEmpty { null },
+        company = this.company?.toDto()
+    )
+}
 
-private fun UserDto.toEntity(): UserEntity = UserEntity(id, name ?: "", email ?: "")
+fun AddressEntity.toDto(): AddressDto {
+    return AddressDto(
+        street = this.street.ifEmpty { null },
+        suite = this.suite.ifEmpty { null },
+        city = this.city.ifEmpty { null },
+        zipcode = this.zipcode.ifEmpty { null }
+    )
+}
+
+fun CompanyEntity.toDto(): CompanyDto {
+    return CompanyDto(
+        name = this.name.ifEmpty { null },
+        catchPhrase = this.catchPhrase.ifEmpty { null },
+        bs = this.bs.ifEmpty { null }
+    )
+}
+
+
+fun UserDto.toEntity(): UserEntity {
+    return UserEntity(
+        id = this.id,
+        name = this.name ?: "Unknown", // Default for name
+        email = this.email ?: "Unknown", // Default for email
+        address = this.address?.toEntity(),
+        phone = this.phone ?: "Unknown", // Default for phone
+        website = this.website ?: "Unknown", // Default for website
+        company = this.company?.toEntity()
+    )
+}
+
+fun AddressDto.toEntity(): AddressEntity {
+    return AddressEntity(
+        street = this.street ?: "Unknown", // Default for street
+        suite = this.suite ?: "Unknown", // Default for suite
+        city = this.city ?: "Unknown", // Default for city
+        zipcode = this.zipcode ?: "Unknown" // Default for zipcode
+    )
+}
+
+fun CompanyDto.toEntity(): CompanyEntity {
+    return CompanyEntity(
+        name = this.name ?: "Unknown", // Default for name
+        catchPhrase = this.catchPhrase ?: "Unknown", // Default for catchPhrase
+        bs = this.bs ?: "Unknown" // Default for bs
+    )
+}

@@ -4,10 +4,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.posttemplate.domain.models.Post
-import com.example.posttemplate.ui.components.AppBar
 import com.example.posttemplate.ui.components.LoadingIndicator
 import com.example.posttemplate.ui.components.PostItem
 
