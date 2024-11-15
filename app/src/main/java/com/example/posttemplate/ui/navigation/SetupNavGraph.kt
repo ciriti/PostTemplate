@@ -27,11 +27,17 @@ import org.koin.compose.koinInject
 
 @Composable
 fun SetupNavGraph(startDestination: String, navController: NavHostController) {
-    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+    val currentDestination = navController.currentBackStackEntryAsState().value?.destination?.route
 
     Scaffold(
         topBar = {
-            if (currentRoute != Route.Authentication.route) TopAppBar(navController)
+            if (currentDestination != Route.Authentication.route) {
+                TopAppBar(
+                    currentDestination = currentDestination,
+                    onNavigateBack = { navController.popBackStack() },
+                    onSearchClick = { /* Handle search click */ }
+                )
+            }
         }
     ) { innerPadding ->
         NavHost(

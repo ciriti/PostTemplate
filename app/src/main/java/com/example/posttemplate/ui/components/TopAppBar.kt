@@ -9,14 +9,16 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.posttemplate.ui.navigation.Route
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBar(navController: NavHostController) {
-    val currentDestination = navController.currentBackStackEntryAsState().value?.destination?.route
+fun TopAppBar(
+    currentDestination: String?,
+    onNavigateBack: () -> Unit,
+    onSearchClick: () -> Unit
+) {
     CenterAlignedTopAppBar(
         title = {
             Text(
@@ -29,7 +31,7 @@ fun TopAppBar(navController: NavHostController) {
         },
         navigationIcon = {
             if (currentDestination != Route.Home.route) {
-                IconButton(onClick = { navController.popBackStack() }) {
+                IconButton(onClick = onNavigateBack) {
                     Icon(
                         imageVector = Icons.Default.ArrowBack,
                         contentDescription = "Back"
@@ -39,7 +41,7 @@ fun TopAppBar(navController: NavHostController) {
         },
         actions = {
             if (currentDestination == Route.Home.route) {
-                IconButton(onClick = { /* Handle action */ }) {
+                IconButton(onClick = onSearchClick) {
                     Icon(
                         imageVector = Icons.Default.Search,
                         contentDescription = "Search"
@@ -47,5 +49,15 @@ fun TopAppBar(navController: NavHostController) {
                 }
             }
         }
+    )
+}
+
+@Preview
+@Composable
+fun PreviewTopAppBar() {
+    TopAppBar(
+        currentDestination = Route.Home.route,
+        onNavigateBack = { /* Handle back navigation */ },
+        onSearchClick = { /* Handle search click */ }
     )
 }
