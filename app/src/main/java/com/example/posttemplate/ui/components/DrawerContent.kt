@@ -5,9 +5,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,14 +27,19 @@ fun DrawerContent(
     currentDestination: String?,
     onNavigate: (String) -> Unit
 ) {
+
     Column(
         modifier = Modifier
-            .padding(16.dp)
             .background(MaterialTheme.colorScheme.surface)
+            .fillMaxWidth(0.9f)
+            .fillMaxHeight()
+            .padding(WindowInsets.systemBars.asPaddingValues())
+            .padding(16.dp)
     ) {
         Text(
             text = "Navigation",
             style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.padding(vertical = 8.dp)
         )
 
@@ -77,7 +86,7 @@ fun DrawerItem(
 
 @Preview
 @Composable
-fun DrawerContentPreview(){
+fun DrawerContentPreview() {
     DrawerContent(
         currentDestination = Route.Home.route,
         onNavigate = {}
