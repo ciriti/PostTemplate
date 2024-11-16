@@ -2,6 +2,7 @@ package com.example.posttemplate.ui.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -17,6 +18,7 @@ import com.example.posttemplate.ui.navigation.Route
 fun TopAppBar(
     currentDestination: String?,
     onNavigateBack: () -> Unit,
+    onMenuClick: () -> Unit,
     onSearchClick: () -> Unit
 ) {
     CenterAlignedTopAppBar(
@@ -35,6 +37,14 @@ fun TopAppBar(
                     Icon(
                         imageVector = Icons.Default.ArrowBack,
                         contentDescription = "Back"
+                    )
+                }
+            } else {
+                // Show menu icon if on Home screen
+                IconButton(onClick = onMenuClick) {
+                    Icon(
+                        imageVector = Icons.Default.Menu,
+                        contentDescription = "Menu"
                     )
                 }
             }
@@ -58,6 +68,7 @@ fun PreviewTopAppBar() {
     TopAppBar(
         currentDestination = Route.Home.route,
         onNavigateBack = { /* Handle back navigation */ },
+        onMenuClick = { /* Handle search click */ },
         onSearchClick = { /* Handle search click */ }
     )
 }
