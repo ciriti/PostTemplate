@@ -18,6 +18,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.example.posttemplate.ui.components.AdaptiveNavigationDrawer
 import com.example.posttemplate.ui.components.DrawerContent
+import com.example.posttemplate.ui.components.DrawerViewModel
 import com.example.posttemplate.ui.components.TopAppBar
 import com.example.posttemplate.ui.components.isLargeScreen
 import com.example.posttemplate.ui.screens.auth.AuthenticationIntent
@@ -36,6 +37,7 @@ import org.koin.compose.koinInject
 fun SetupNavGraph(startDestination: String, navController: NavHostController) {
     val isLargeScreen = isLargeScreen()
     val currentDestination = navController.currentBackStackEntryAsState().value?.destination?.route
+    val drawerViewModel = koinInject<DrawerViewModel>()
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -51,6 +53,16 @@ fun SetupNavGraph(startDestination: String, navController: NavHostController) {
                         popUpTo(navController.graph.startDestinationId) { inclusive = false }
                         launchSingleTop = true
                     }
+                },
+                onLogOut = {
+                    drawerViewModel.logOut()
+                    navController.navigate(Route.Authentication.route) {
+                        popUpTo(navController.graph.startDestinationId) {
+                            inclusive = true // Clears all intermediate destinations
+                        }
+                        launchSingleTop = true // Ensures no duplicate destinations
+                    }
+                    scope.launch { drawerState.close() }
                 }
             )
         }

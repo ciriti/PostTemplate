@@ -1,5 +1,6 @@
 package com.example.posttemplate.ui.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -12,21 +13,27 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.posttemplate.R
 import com.example.posttemplate.ui.navigation.Route
 
 @Composable
 fun DrawerContent(
     currentDestination: String?,
-    onNavigate: (String) -> Unit
-) {
+    onNavigate: (String) -> Unit,
+    onLogOut: () -> Unit,
+
+    ) {
 
     Column(
         modifier = Modifier
@@ -45,6 +52,16 @@ fun DrawerContent(
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        Image(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(250.dp),
+            painter = painterResource(id = R.drawable.logo),
+            contentDescription = "Logo Image"
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
         DrawerItem(
             label = "Home",
             isSelected = currentDestination == Route.Home.route,
@@ -52,9 +69,10 @@ fun DrawerContent(
         )
 
         DrawerItem(
-            label = "Profile",
+            label = "Sign Out",
+            iconResId = R.drawable.google_logo,
             isSelected = currentDestination?.startsWith(Route.Profile.route) == true,
-            onClick = { onNavigate(Route.Profile.route) }
+            onClick = { onLogOut() }
         )
     }
 }
@@ -63,6 +81,7 @@ fun DrawerContent(
 fun DrawerItem(
     label: String,
     isSelected: Boolean,
+    iconResId: Int? = null,
     onClick: () -> Unit
 ) {
     Row(
@@ -76,6 +95,15 @@ fun DrawerItem(
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
+        iconResId?.let {
+            Icon(
+                painter = painterResource(id = iconResId),
+                contentDescription = "",
+                tint = MaterialTheme.colorScheme.onSurface
+            )
+        }
+
+        Spacer(modifier = Modifier.width(12.dp))
         Text(
             text = label,
             style = MaterialTheme.typography.bodyMedium,
@@ -89,6 +117,7 @@ fun DrawerItem(
 fun DrawerContentPreview() {
     DrawerContent(
         currentDestination = Route.Home.route,
-        onNavigate = {}
+        onNavigate = {},
+        onLogOut = {}
     )
 }
