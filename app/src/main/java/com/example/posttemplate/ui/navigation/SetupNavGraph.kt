@@ -34,10 +34,16 @@ import kotlinx.coroutines.launch
 import org.koin.compose.koinInject
 
 @Composable
-fun SetupNavGraph(startDestination: String, navController: NavHostController) {
+fun SetupNavGraph(
+    startDestination: String,
+    navController: NavHostController,
+    drawerViewModel: DrawerViewModel = koinInject<DrawerViewModel>(),
+    authViewModel: AuthenticationViewModel = koinInject<AuthenticationViewModel>(),
+    profileViewModel: ProfileViewModel = koinInject<ProfileViewModel>(),
+    homeViewModel: HomeViewModel = koinInject<HomeViewModel>(),
+) {
     val isLargeScreen = isLargeScreen()
     val currentDestination = navController.currentBackStackEntryAsState().value?.destination?.route
-    val drawerViewModel = koinInject<DrawerViewModel>()
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -88,21 +94,23 @@ fun SetupNavGraph(startDestination: String, navController: NavHostController) {
                 navController = navController,
                 modifier = Modifier.padding(innerPadding)
             ) {
-                authenticationRoute(navController)
-                homeRoute(navController)
-                profileRoute()
+                authenticationRoute(navController, authViewModel)
+                homeRoute(navController, homeViewModel)
+                profileRoute(profileViewModel)
             }
         }
     }
 }
 
-fun NavGraphBuilder.authenticationRoute(navController: NavHostController) {
+fun NavGraphBuilder.authenticationRoute(
+    navController: NavHostController,
+    authViewModel: AuthenticationViewModel
+) {
     composable(route = Route.Authentication.route) {
-        val viewModel = koinInject<AuthenticationViewModel>()
         AuthenticationScreen(
-            loadingState = viewModel.state.collectAsState().value.isLoading,
+            loadingState = authViewModel.state.collectAsState().value.isLoading,
             onButtonClicked = {
-                viewModel.handleIntent(AuthenticationIntent.Authenticate)
+                authViewModel.handleIntent(AuthenticationIntent.Authenticate)
             },
             navigateToHome = {
                 navController.navigate(Route.Home.route) {
@@ -113,15 +121,14 @@ fun NavGraphBuilder.authenticationRoute(navController: NavHostController) {
     }
 }
 
-fun NavGraphBuilder.homeRoute(navController: NavHostController) {
+fun NavGraphBuilder.homeRoute(navController: NavHostController, homeViewModel: HomeViewModel) {
     composable(route = Route.Home.route) {
-        val viewModel = koinInject<HomeViewModel>()
         LaunchedEffect(Unit) {
-            viewModel.handleIntent(HomeIntent.LoadPosts)
+            homeViewModel.handleIntent(HomeIntent.LoadPosts)
         }
         HomeScreen(
-            state = viewModel.state.collectAsState().value,
-            onRetry = { viewModel.handleIntent(HomeIntent.LoadPosts) },
+            state = homeViewModel.state.collectAsState().value,
+            onRetry = { homeViewModel.handleIntent(HomeIntent.LoadPosts) },
             onNavigateToDetails = { postId ->
                 navController.navigate(Route.Profile.passUserId(postId))
             }
@@ -129,18 +136,17 @@ fun NavGraphBuilder.homeRoute(navController: NavHostController) {
     }
 }
 
-fun NavGraphBuilder.profileRoute() {
+fun NavGraphBuilder.profileRoute(profileViewModel: ProfileViewModel) {
     composable(
         route = Route.Profile.route + "/{userId}",
         arguments = listOf(navArgument("userId") { type = NavType.IntType })
     ) { backStackEntry ->
-        val viewModel = koinInject<ProfileViewModel>()
         val userId = backStackEntry.arguments?.getInt("userId") ?: return@composable
         LaunchedEffect(Unit) {
-            viewModel.handleIntent(ProfileIntent.LoadProfile(userId))
+            profileViewModel.handleIntent(ProfileIntent.LoadProfile(userId))
         }
         ProfileScreen(
-            state = viewModel.state.collectAsState().value,
+            state = profileViewModel.state.collectAsState().value,
             onBack = { /* Handle navigation back */ }
         )
     }

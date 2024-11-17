@@ -38,6 +38,22 @@ android {
         compose = true
         buildConfig = true
     }
+    packaging {
+        resources {
+            excludes.addAll(
+                listOf(
+                    "META-INF/LICENSE-notice.md",
+                    "META-INF/LICENSE.md",
+                    "META-INF/LICENSE.txt",
+                    "META-INF/DEPENDENCIES",
+                    "META-INF/NOTICE",
+                    "META-INF/NOTICE.txt",
+                    "META-INF/README.md",
+                    "META-INF/README.txt"
+                )
+            )
+        }
+    }
 }
 
 dependencies {
@@ -89,6 +105,9 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     testImplementation(libs.androidx.navigation.testing)
     androidTestImplementation(libs.androidx.navigation.testing)
+
+    androidTestImplementation(libs.mockk.android)
+    testImplementation(libs.mockk)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
