@@ -28,7 +28,7 @@ class AuthenticationViewModel(private val authRepository: AuthRepository) :
     private fun authenticate() {
         viewModelScope.launch {
             _state.value = _state.value.copy(isLoading = true)
-            delay(2000) // Simulate a 2-second authentication process
+            delay(2000)
 
             authRepository.setUserSignedIn(true)
 

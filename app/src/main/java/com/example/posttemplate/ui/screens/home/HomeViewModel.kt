@@ -1,7 +1,6 @@
 package com.example.posttemplate.ui.screens.home
 
 import androidx.lifecycle.viewModelScope
-import com.example.posttemplate.domain.models.Post
 import com.example.posttemplate.domain.services.PostService
 import com.example.posttemplate.ui.components.BaseViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -32,11 +31,13 @@ class HomeViewModel(
             _state.value = _state.value.copy(isLoading = true)
             service.getPosts().fold(
                 { throwable ->
-                    _state.value = _state.value.copy(isLoading = false, errorMessage = throwable.message)
+                    _state.value =
+                        _state.value.copy(isLoading = false, errorMessage = throwable.message)
                     _effect.emit(HomeEffect.ShowError(throwable.message ?: "Unknown error"))
                 },
                 { posts ->
-                    _state.value = _state.value.copy(isLoading = false, posts = posts, errorMessage = null)
+                    _state.value =
+                        _state.value.copy(isLoading = false, posts = posts, errorMessage = null)
                 }
             )
         }
