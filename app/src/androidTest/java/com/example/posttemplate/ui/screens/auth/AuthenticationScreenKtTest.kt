@@ -48,7 +48,7 @@ class AuthenticationScreenTest {
         composeTestRule.onNodeWithTag("GoogleButton").performClick()
 
         // Assert
-//        assert(buttonClicked) { "Button click callback was not triggered" }
+        assert(buttonClicked) { "Button click callback was not triggered" }
         assert(navigated) { "Navigation callback was not triggered" }
     }
 
@@ -64,8 +64,8 @@ class AuthenticationScreenTest {
         }
 
         // Assert
-        composeTestRule.onNodeWithTag("GoogleButton").assertIsDisplayed() // Button is displayed
-        composeTestRule.onNodeWithTag("GoogleButton")
+        composeTestRule.onNodeWithTag("GoogleButtonContainer").assertIsDisplayed() // Button is displayed
+        composeTestRule.onNodeWithTag("GoogleButtonContainer")
             .assertHasNoClickAction() // Button is not clickable
     }
 
@@ -79,6 +79,6 @@ class AuthenticationScreenTest {
             )
         }
 
-        composeTestRule.onNodeWithTag("GoogleButton").assertHasNoClickAction()
+        composeTestRule.onNodeWithTag("GoogleButtonContainer").assertHasNoClickAction()
     }
 }

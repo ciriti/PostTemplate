@@ -69,10 +69,11 @@ fun AuthenticationScreen(
             Column(
                 modifier = Modifier
                     .weight(weight = 2f)
-                    .testTag("GoogleButton"),
+                    .testTag("GoogleButtonContainer"),
                 verticalArrangement = Arrangement.Bottom
             ) {
                 GoogleButton(
+                    modifier = Modifier.testTag("GoogleButton"),
                     loadingState = loadingState,
                     onClick = {
                         onButtonClicked()
