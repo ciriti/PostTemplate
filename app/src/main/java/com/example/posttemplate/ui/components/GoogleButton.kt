@@ -100,7 +100,8 @@ fun GoogleButton(
             if (loadingState) {
                 Spacer(modifier = Modifier.width(16.dp))
                 CircularProgressIndicator(
-                    modifier = Modifier.size(16.dp),
+                    modifier = Modifier.size(16.dp)
+                        .semantics { contentDescription = "CircularProgressIndicator" },
                     strokeWidth = 2.dp,
                     color = progressIndicatorColor
                 )
