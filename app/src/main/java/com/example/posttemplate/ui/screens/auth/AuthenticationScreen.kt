@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -46,23 +47,29 @@ fun AuthenticationScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Image(
-                    modifier = Modifier.size(120.dp),
+                    modifier = Modifier
+                        .size(120.dp)
+                        .testTag("GoogleLogo"),
                     painter = painterResource(id = R.drawable.google_logo),
                     contentDescription = "Google Logo"
                 )
                 Spacer(modifier = Modifier.height(20.dp))
                 Text(
                     text = stringResource(id = R.string.auth_title),
-                    fontSize = MaterialTheme.typography.titleLarge.fontSize
+                    fontSize = MaterialTheme.typography.titleLarge.fontSize,
+                    modifier = Modifier.testTag("AuthTitle"),
                 )
                 Text(
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
                     text = stringResource(id = R.string.auth_subtitle),
-                    fontSize = MaterialTheme.typography.bodyMedium.fontSize
+                    fontSize = MaterialTheme.typography.bodyMedium.fontSize,
+                    modifier = Modifier.testTag("AuthSubtitle"),
                 )
             }
             Column(
-                modifier = Modifier.weight(weight = 2f),
+                modifier = Modifier
+                    .weight(weight = 2f)
+                    .testTag("GoogleButton"),
                 verticalArrangement = Arrangement.Bottom
             ) {
                 GoogleButton(
