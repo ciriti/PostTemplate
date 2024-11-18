@@ -55,7 +55,6 @@ class AuthenticationViewModelTest {
             assertEquals(false, states.awaitItem().isLoading) // State after loading is complete
             assertEquals(AuthenticationEffect.NavigateToHome, effects.awaitItem())
 
-            // Verify
             coVerify { mockAuthRepository.setUserSignedIn(true) }
 
             states.cancel()

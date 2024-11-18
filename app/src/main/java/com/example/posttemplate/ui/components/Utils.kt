@@ -6,5 +6,5 @@ import androidx.compose.ui.platform.LocalConfiguration
 @Composable
 fun isLargeScreen(): Boolean {
     val configuration = LocalConfiguration.current
-    return configuration.screenWidthDp >= 600 // Threshold for "large screens"
+    return configuration.screenWidthDp >= 600
 }

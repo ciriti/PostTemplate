@@ -19,7 +19,6 @@ object NetworkClient {
             .build()
     }
 
-    // Retrofit instance using the OkHttpClient
     val apiService: ApiService by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)

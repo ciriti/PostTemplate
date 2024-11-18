@@ -40,7 +40,6 @@ private class UserRepositoryImpl(
     }
 }
 
-// Extension Functions for Entity <-> DTO Conversions
 fun UserEntity.toDto(): UserDto {
     return UserDto(
         id = this.id,
@@ -74,28 +73,28 @@ fun CompanyEntity.toDto(): CompanyDto {
 fun UserDto.toEntity(): UserEntity {
     return UserEntity(
         id = this.id,
-        name = this.name ?: "Unknown", // Default for name
-        email = this.email ?: "Unknown", // Default for email
+        name = this.name ?: "Unknown",
+        email = this.email ?: "Unknown",
         address = this.address?.toEntity(),
-        phone = this.phone ?: "Unknown", // Default for phone
-        website = this.website ?: "Unknown", // Default for website
+        phone = this.phone ?: "Unknown",
+        website = this.website ?: "Unknown",
         company = this.company?.toEntity()
     )
 }
 
 fun AddressDto.toEntity(): AddressEntity {
     return AddressEntity(
-        street = this.street ?: "Unknown", // Default for street
-        suite = this.suite ?: "Unknown", // Default for suite
-        city = this.city ?: "Unknown", // Default for city
-        zipcode = this.zipcode ?: "Unknown" // Default for zipcode
+        street = this.street ?: "Unknown",
+        suite = this.suite ?: "Unknown",
+        city = this.city ?: "Unknown",
+        zipcode = this.zipcode ?: "Unknown"
     )
 }
 
 fun CompanyDto.toEntity(): CompanyEntity {
     return CompanyEntity(
-        name = this.name ?: "Unknown", // Default for name
-        catchPhrase = this.catchPhrase ?: "Unknown", // Default for catchPhrase
-        bs = this.bs ?: "Unknown" // Default for bs
+        name = this.name ?: "Unknown",
+        catchPhrase = this.catchPhrase ?: "Unknown",
+        bs = this.bs ?: "Unknown"
     )
 }

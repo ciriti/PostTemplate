@@ -62,7 +62,6 @@ class HomeViewModelTest {
                 states.awaitItem()
             )
 
-            // Verify
             coVerify { mockPostService.getPosts() }
 
             states.cancel()
@@ -98,7 +97,6 @@ class HomeViewModelTest {
             )
             assertEquals(HomeEffect.ShowError(errorMessage), effects.awaitItem())
 
-            // Verify
             coVerify { mockPostService.getPosts() }
 
             states.cancel()
@@ -118,9 +116,6 @@ class HomeViewModelTest {
 
             // Assert
             assertEquals(HomeEffect.NavigateToPostDetails(postId), effects.awaitItem())
-
-            // Verify
-            // No additional verification required since it only emits an effect
 
             effects.cancel()
         }

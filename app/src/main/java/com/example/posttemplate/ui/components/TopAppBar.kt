@@ -40,7 +40,6 @@ fun TopAppBar(
                     )
                 }
             } else {
-                // Show menu icon if on Home screen
                 IconButton(onClick = onMenuClick) {
                     Icon(
                         imageVector = Icons.Default.Menu,

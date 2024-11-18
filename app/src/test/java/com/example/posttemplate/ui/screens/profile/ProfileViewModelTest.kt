@@ -66,7 +66,6 @@ class ProfileViewModelTest {
             assertEquals(true, states.awaitItem().isLoading)
             assertEquals(expectedState, states.awaitItem())
 
-            // Verify
             coVerify { mockUserService.getUserById(1) }
 
             states.cancel()
@@ -104,7 +103,6 @@ class ProfileViewModelTest {
                 effects.awaitItem()
             )
 
-            // Verify
             coVerify { mockUserService.getUserById(1) }
 
             states.cancel()

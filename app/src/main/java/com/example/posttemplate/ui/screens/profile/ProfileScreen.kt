@@ -42,7 +42,6 @@ fun ProfileScreen(
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    // Header with user name
                     Text(
                         text = user.fullName,
                         style = MaterialTheme.typography.titleLarge,
@@ -50,7 +49,6 @@ fun ProfileScreen(
                         textAlign = TextAlign.Center
                     )
 
-                    // Email
                     SelectionContainer {
                         Text(
                             text = "Email: ${user.email}",
@@ -60,7 +58,6 @@ fun ProfileScreen(
                         )
                     }
 
-                    // Address Section
                     Text(
                         text = "Address",
                         style = MaterialTheme.typography.titleSmall.copy(fontSize = 20.sp),
@@ -69,10 +66,8 @@ fun ProfileScreen(
                     )
                     AddressSection(user)
 
-                    // Phone & Website
                     ContactSection(user)
 
-                    // Company Section
                     CompanySection(user)
                 }
             }

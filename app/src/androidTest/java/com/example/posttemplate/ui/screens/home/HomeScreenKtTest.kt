@@ -72,7 +72,7 @@ class HomeScreenTest {
         var clickedPostId: Int? = null
         val state = HomeState(isLoading = false, posts = posts, errorMessage = null)
 
-        // Act
+
         composeTestRule.setContent {
             HomeScreen(
                 state = state,
@@ -81,7 +81,7 @@ class HomeScreenTest {
             )
         }
 
-        // Simulate click
+        // Act
         composeTestRule.onNodeWithText("First Post").performClick()
 
         // Assert

@@ -15,7 +15,6 @@ fun PostDto.toDomain(authorId: Int): Post {
     )
 }
 
-// Convert PostEntity to Post domain model
 fun PostEntity.toDomain(authorId: Int): Post {
     return Post(
         id = this.id,
@@ -25,7 +24,6 @@ fun PostEntity.toDomain(authorId: Int): Post {
     )
 }
 
-// Convert Post domain model to PostEntity
 fun Post.toEntity(authorId: Int): PostEntity {
     return PostEntity(
         id = this.id,

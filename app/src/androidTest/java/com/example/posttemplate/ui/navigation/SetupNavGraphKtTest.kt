@@ -59,7 +59,7 @@ class SetupNavGraphTest {
             )
         }
 
-        // Assert - Ensure the HomeScreen content is displayed
+        // Assert
         composeTestRule.onNodeWithText("Test Post").assertIsDisplayed()
     }
 
@@ -81,6 +81,7 @@ class SetupNavGraphTest {
             every { handleIntent(any()) } just Runs
         }
 
+        // Act
         composeTestRule.setContent {
             SetupNavGraph(
                 startDestination = Route.Home.route,
@@ -92,7 +93,7 @@ class SetupNavGraphTest {
             )
         }
 
-        // Assert - Ensure both posts are displayed
+        // Assert
         composeTestRule.onNodeWithText("Post 1").assertIsDisplayed()
         composeTestRule.onNodeWithText("Post 2").assertIsDisplayed()
     }
@@ -109,6 +110,7 @@ class SetupNavGraphTest {
             every { handleIntent(any()) } just Runs
         }
 
+        // Act
         composeTestRule.setContent {
             SetupNavGraph(
                 startDestination = Route.Authentication.route,
@@ -120,7 +122,7 @@ class SetupNavGraphTest {
             )
         }
 
-        // Assert AuthenticationScreen is displayed
+        // Assert
         composeTestRule.onNodeWithText("Sign in with Google").assertIsDisplayed()
     }
 
@@ -158,16 +160,16 @@ class SetupNavGraphTest {
             )
         }
 
-        // Act: Simulate navigation to home
+        // Act
         composeTestRule.onNodeWithText("Sign in with Google").performClick()
 
-        // Assert HomeScreen is displayed
+        // Assert
         composeTestRule.onNodeWithText("Test Post").assertIsDisplayed()
     }
 
     @Test
     fun testNavigationToProfileFromHome() {
-        // Arrange: Create mock state flows for each ViewModel
+        // Arrange
         val mockProfileStateFlow = MutableStateFlow(profileState)
         val mockProfileViewModel = mockk<ProfileViewModel> {
             every { state } returns mockProfileStateFlow
@@ -196,16 +198,16 @@ class SetupNavGraphTest {
             )
         }
 
-        // Act: Simulate clicking on the post in the home screen
+        // Act
         composeTestRule.onNodeWithText("First Post").performClick()
 
-        // Assert ProfileScreen is displayed
+        // Assert
         composeTestRule.onNodeWithText("John Doe").assertIsDisplayed()
     }
 
     @Test
     fun testLogOutNavigatesToAuthentication() {
-        // Arrange: Create mock ViewModels
+        // Arrange
         val mockDrawerViewModel = mockk<DrawerViewModel> {
             every { logOut() } just Runs
         }
@@ -237,11 +239,11 @@ class SetupNavGraphTest {
             )
         }
 
-        // Act: Simulate opening the drawer and clicking "Log Out"
+        // Act
         composeTestRule.onNodeWithContentDescription("Menu").performClick() // Opens the drawer
         composeTestRule.onNodeWithText("Sign Out").performClick() // Logs out
 
-        // Assert: Ensure the AuthenticationScreen is displayed
+        // Assert
         composeTestRule.onNodeWithText("Sign in with Google").assertIsDisplayed()
     }
 
