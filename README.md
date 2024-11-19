@@ -158,7 +158,6 @@ The application follows a clean architecture model to maintain scalability and t
 
 - **Jetpack Compose**: For modern UI development.
 - **Kotlin Coroutines**: For asynchronous programming.
-- **Hilt**: For dependency injection.
 - **Navigation Component**: For managing app navigation.
 - **Material Design**: For consistent UI components.
 
