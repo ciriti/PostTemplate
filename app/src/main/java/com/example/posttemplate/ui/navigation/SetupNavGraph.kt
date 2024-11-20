@@ -7,7 +7,11 @@ import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -17,6 +21,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.example.posttemplate.ui.components.AdaptiveNavigationDrawer
+import com.example.posttemplate.ui.components.DisplayAlertDialog
 import com.example.posttemplate.ui.components.DrawerContent
 import com.example.posttemplate.ui.components.DrawerViewModel
 import com.example.posttemplate.ui.components.TopAppBar
@@ -46,6 +51,7 @@ fun SetupNavGraph(
     val currentDestination = navController.currentBackStackEntryAsState().value?.destination?.route
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+    var signOutDialogOpened by remember { mutableStateOf(false) }
 
     AdaptiveNavigationDrawer(
         isLargeScreen = isLargeScreen,
@@ -61,13 +67,7 @@ fun SetupNavGraph(
                     }
                 },
                 onLogOut = {
-                    drawerViewModel.logOut()
-                    navController.navigate(Route.Authentication.route) {
-                        popUpTo(navController.graph.startDestinationId) {
-                            inclusive = true // Clears all intermediate destinations
-                        }
-                        launchSingleTop = true // Ensures no duplicate destinations
-                    }
+                    signOutDialogOpened = true
                     scope.launch { drawerState.close() }
                 }
             )
@@ -89,6 +89,21 @@ fun SetupNavGraph(
                 }
             }
         ) { innerPadding ->
+            DisplayAlertDialog(
+                title = "Sign Out",
+                message = "Are you sure you want to sign out?",
+                dialogOpened = signOutDialogOpened,
+                onDialogClosed = { signOutDialogOpened = false },
+                onYesClicked = {
+                    drawerViewModel.logOut()
+                    navController.navigate(Route.Authentication.route) {
+                        popUpTo(navController.graph.startDestinationId) {
+                            inclusive = true // Clears all intermediate destinations
+                        }
+                        launchSingleTop = true // Ensures no duplicate destinations
+                    }
+                }
+            )
             NavHost(
                 startDestination = startDestination,
                 navController = navController,

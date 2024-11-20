@@ -242,11 +242,11 @@ class SetupNavGraphTest {
         // Act
         composeTestRule.onNodeWithContentDescription("Menu").performClick() // Opens the drawer
         composeTestRule.onNodeWithText("Sign Out").performClick() // Logs out
+        composeTestRule.onNodeWithText("Yes").performClick() // Logs out
 
         // Assert
         composeTestRule.onNodeWithText("Sign in with Google").assertIsDisplayed()
     }
-
 
 }
 
