@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.screens.auth
+package com.example.posttemplate.ui.screen.auth
 
 import androidx.lifecycle.viewModelScope
 import com.example.posttemplate.data.repository.AuthRepository

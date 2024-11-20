@@ -1,10 +1,11 @@
-package com.example.posttemplate.ui.screens.auth
+package com.example.posttemplate.ui.screen.auth
 
 import androidx.compose.ui.test.assertHasNoClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
+import com.example.posttemplate.ui.screen.auth.AuthenticationScreen
 import org.junit.Rule
 import org.junit.Test
 

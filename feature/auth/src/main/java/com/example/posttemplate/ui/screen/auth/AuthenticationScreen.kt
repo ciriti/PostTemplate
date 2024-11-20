@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.screens.auth
+package com.example.posttemplate.ui.screen.auth
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
@@ -19,7 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.posttemplate.R
+import com.example.posttemplate.auth.R
 import com.example.posttemplate.ui.components.GoogleButton
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

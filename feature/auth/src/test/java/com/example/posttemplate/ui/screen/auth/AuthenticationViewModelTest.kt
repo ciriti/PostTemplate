@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.screens.auth
+package com.example.posttemplate.ui.screen.auth
 
 import app.cash.turbine.turbineScope
 import com.example.posttemplate.data.repository.AuthRepository
@@ -31,7 +31,8 @@ class AuthenticationViewModelTest {
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
-        viewModel = AuthenticationViewModel(authRepository = mockAuthRepository)
+        viewModel =
+            AuthenticationViewModel(authRepository = mockAuthRepository)
     }
 
     @After

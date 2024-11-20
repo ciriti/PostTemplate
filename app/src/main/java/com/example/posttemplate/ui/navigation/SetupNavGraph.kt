@@ -25,9 +25,8 @@ import com.example.posttemplate.ui.components.DisplayAlertDialog
 import com.example.posttemplate.ui.components.DrawerContent
 import com.example.posttemplate.ui.components.TopAppBar
 import com.example.posttemplate.ui.components.isLargeScreen
-import com.example.posttemplate.ui.screens.auth.AuthenticationIntent
-import com.example.posttemplate.ui.screens.auth.AuthenticationScreen
-import com.example.posttemplate.ui.screens.auth.AuthenticationViewModel
+import com.example.posttemplate.ui.screen.auth.AuthenticationViewModel
+import com.example.posttemplate.ui.screen.auth.navigation.authenticationRoute
 import com.example.posttemplate.ui.screens.home.HomeIntent
 import com.example.posttemplate.ui.screens.home.HomeScreen
 import com.example.posttemplate.ui.screens.home.HomeViewModel
@@ -113,25 +112,6 @@ fun SetupNavGraph(
                 profileRoute(profileViewModel)
             }
         }
-    }
-}
-
-fun NavGraphBuilder.authenticationRoute(
-    navController: NavHostController,
-    authViewModel: AuthenticationViewModel
-) {
-    composable(route = Route.Authentication.route) {
-        AuthenticationScreen(
-            loadingState = authViewModel.state.collectAsState().value.isLoading,
-            onButtonClicked = {
-                authViewModel.handleIntent(AuthenticationIntent.Authenticate)
-            },
-            navigateToHome = {
-                navController.navigate(Route.Home.route) {
-                    popUpTo(Route.Authentication.route) { inclusive = true }
-                }
-            }
-        )
     }
 }
 

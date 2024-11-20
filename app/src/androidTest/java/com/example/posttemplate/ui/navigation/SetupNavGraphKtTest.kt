@@ -11,8 +11,8 @@ import com.example.posttemplate.domain.models.Address
 import com.example.posttemplate.domain.models.Company
 import com.example.posttemplate.domain.models.Post
 import com.example.posttemplate.domain.models.User
-import com.example.posttemplate.ui.screens.auth.AuthenticationState
-import com.example.posttemplate.ui.screens.auth.AuthenticationViewModel
+import com.example.posttemplate.ui.screen.auth.AuthenticationState
+import com.example.posttemplate.ui.screen.auth.AuthenticationViewModel
 import com.example.posttemplate.ui.screens.home.HomeState
 import com.example.posttemplate.ui.screens.home.HomeViewModel
 import com.example.posttemplate.ui.screens.profile.ProfileState
@@ -211,7 +211,11 @@ class SetupNavGraphTest {
             every { logOut() } just Runs
         }
         val mockAuthViewModel = mockk<AuthenticationViewModel> {
-            every { state } returns MutableStateFlow(AuthenticationState(isLoading = false))
+            every { state } returns MutableStateFlow(
+                AuthenticationState(
+                    isLoading = false
+                )
+            )
         }
         val mockHomeViewModel = mockk<HomeViewModel> {
             every { state } returns MutableStateFlow(

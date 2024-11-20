@@ -1,6 +1,6 @@
 package com.example.posttemplate.data.remote
 
-import com.example.posttemplate.BuildConfig
+import com.example.posttemplate.data.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

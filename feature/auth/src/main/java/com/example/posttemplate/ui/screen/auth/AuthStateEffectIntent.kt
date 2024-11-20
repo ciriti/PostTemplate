@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.screens.auth
+package com.example.posttemplate.ui.screen.auth
 
 data class AuthenticationState(
     val isLoading: Boolean = false

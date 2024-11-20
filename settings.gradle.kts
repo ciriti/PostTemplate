@@ -23,3 +23,5 @@ rootProject.name = "PostTemplate"
 include(":app")
 include(":core:ui")
 include(":core:util")
+include(":feature:auth")
+include(":core:data")
