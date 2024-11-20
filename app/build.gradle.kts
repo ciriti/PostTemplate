@@ -28,8 +28,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
         isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
@@ -41,18 +41,7 @@ android {
     }
     packaging {
         resources {
-            excludes.addAll(
-                listOf(
-                    "META-INF/LICENSE-notice.md",
-                    "META-INF/LICENSE.md",
-                    "META-INF/LICENSE.txt",
-                    "META-INF/DEPENDENCIES",
-                    "META-INF/NOTICE",
-                    "META-INF/NOTICE.txt",
-                    "META-INF/README.md",
-                    "META-INF/README.txt"
-                )
-            )
+            excludes.add("META-INF/*")
         }
     }
 }
@@ -93,6 +82,8 @@ dependencies {
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     implementation(libs.androidx.preference)
+
+    implementation(project(":core:ui"))
 
     testImplementation("io.insert-koin:koin-test:4.0.0")
     // Koin for JUnit 4

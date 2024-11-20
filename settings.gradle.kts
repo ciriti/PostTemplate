@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "PostTemplate"
 include(":app")
 include(":core:ui")
+include(":core:util")

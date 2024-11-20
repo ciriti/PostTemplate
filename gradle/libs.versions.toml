@@ -79,3 +79,4 @@ kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 koin = { id = "io.insert-koin", version.ref = "koin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
