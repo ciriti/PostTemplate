@@ -1,11 +1,12 @@
-package com.example.posttemplate.ui.components
+package com.example.posttemplate.components
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
-import com.example.posttemplate.R
+import com.example.posttemplate.ui.R
+import com.example.posttemplate.ui.components.GoogleButton
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Rule
