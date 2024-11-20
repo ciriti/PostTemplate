@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.posttemplate.domain.models.Post
 import com.example.posttemplate.ui.components.LoadingIndicator
-import com.example.posttemplate.ui.components.PostItem
+import com.example.posttemplate.ui.screens.home.components.PostItem
 
 @Composable
 fun HomeScreen(

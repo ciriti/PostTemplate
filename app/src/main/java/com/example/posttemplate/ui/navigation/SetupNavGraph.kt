@@ -23,7 +23,6 @@ import androidx.navigation.navArgument
 import com.example.posttemplate.ui.components.AdaptiveNavigationDrawer
 import com.example.posttemplate.ui.components.DisplayAlertDialog
 import com.example.posttemplate.ui.components.DrawerContent
-import com.example.posttemplate.ui.components.DrawerViewModel
 import com.example.posttemplate.ui.components.TopAppBar
 import com.example.posttemplate.ui.components.isLargeScreen
 import com.example.posttemplate.ui.screens.auth.AuthenticationIntent

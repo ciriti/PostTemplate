@@ -11,7 +11,6 @@ import com.example.posttemplate.domain.models.Address
 import com.example.posttemplate.domain.models.Company
 import com.example.posttemplate.domain.models.Post
 import com.example.posttemplate.domain.models.User
-import com.example.posttemplate.ui.components.DrawerViewModel
 import com.example.posttemplate.ui.screens.auth.AuthenticationState
 import com.example.posttemplate.ui.screens.auth.AuthenticationViewModel
 import com.example.posttemplate.ui.screens.home.HomeState

@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.components
+package com.example.posttemplate.ui.screens.home.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

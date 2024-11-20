@@ -1,9 +1,8 @@
-package com.example.posttemplate.ui.components
+package com.example.posttemplate.ui.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
 import com.example.posttemplate.data.repository.AuthRepository
-import com.example.posttemplate.ui.navigation.Route
 
 data class DrawerItem(
     val label: String,

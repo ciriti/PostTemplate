@@ -13,7 +13,7 @@ import com.example.posttemplate.data.repository.UserRepository
 import com.example.posttemplate.data.repository.create
 import com.example.posttemplate.domain.services.PostService
 import com.example.posttemplate.domain.services.UserService
-import com.example.posttemplate.ui.components.DrawerViewModel
+import com.example.posttemplate.ui.navigation.DrawerViewModel
 import com.example.posttemplate.ui.screens.auth.AuthenticationViewModel
 import com.example.posttemplate.ui.screens.home.HomeViewModel
 import com.example.posttemplate.ui.screens.profile.ProfileViewModel
