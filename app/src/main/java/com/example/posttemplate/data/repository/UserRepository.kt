@@ -9,7 +9,7 @@ import com.example.posttemplate.data.models.AddressDto
 import com.example.posttemplate.data.models.CompanyDto
 import com.example.posttemplate.data.models.UserDto
 import com.example.posttemplate.data.remote.ApiService
-import com.example.posttemplate.utils.check
+import com.example.posttemplate.util.check
 
 interface UserRepository {
     suspend fun getUserById(id: Int): Either<Throwable, UserDto>

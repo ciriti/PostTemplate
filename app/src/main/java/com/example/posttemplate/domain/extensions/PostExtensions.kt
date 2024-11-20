@@ -3,7 +3,7 @@ package com.example.posttemplate.domain.extensions
 import com.example.posttemplate.data.local.PostEntity
 import com.example.posttemplate.data.models.PostDto
 import com.example.posttemplate.domain.models.Post
-import com.example.posttemplate.utils.fail
+import com.example.posttemplate.util.fail
 
 
 fun PostDto.toDomain(authorId: Int): Post {

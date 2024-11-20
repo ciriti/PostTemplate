@@ -6,7 +6,7 @@ import com.example.posttemplate.data.repository.PostRepository
 import com.example.posttemplate.data.repository.UserRepository
 import com.example.posttemplate.domain.extensions.toDomain
 import com.example.posttemplate.domain.models.Post
-import com.example.posttemplate.utils.check
+import com.example.posttemplate.util.check
 
 interface PostService {
     suspend fun getPosts(): Either<Throwable, List<Post>>

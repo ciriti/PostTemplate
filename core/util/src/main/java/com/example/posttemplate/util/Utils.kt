@@ -1,4 +1,4 @@
-package com.example.posttemplate.utils
+package com.example.posttemplate.util
 
 import arrow.core.Either
 import arrow.core.left
@@ -8,9 +8,14 @@ suspend fun <T> check(block: suspend () -> T): Either<AppFailure, T> {
         Either.Right(block())
     } catch (e: Throwable) {
         when (e) {
-            is java.net.UnknownHostException -> AppFailure.NetworkFailure("Network not available", e).left()
+            is java.net.UnknownHostException -> AppFailure.NetworkFailure(
+                "Network not available",
+                e
+            ).left()
             is java.sql.SQLException -> AppFailure.DatabaseFailure("Database operation failed", e).left()
-            is IllegalArgumentException -> AppFailure.ValidationFailure(e.message ?: "Validation error").left()
+            is IllegalArgumentException -> AppFailure.ValidationFailure(
+                e.message ?: "Validation error"
+            ).left()
             else -> AppFailure.UnknownFailure("An unknown error occurred", e).left()
         }
     }

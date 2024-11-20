@@ -84,6 +84,7 @@ dependencies {
     implementation(libs.androidx.preference)
 
     implementation(project(":core:ui"))
+    implementation(project(":core:util"))
 
     testImplementation("io.insert-koin:koin-test:4.0.0")
     // Koin for JUnit 4

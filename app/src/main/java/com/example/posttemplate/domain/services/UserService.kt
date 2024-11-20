@@ -5,7 +5,7 @@ import arrow.core.getOrHandle
 import com.example.posttemplate.data.repository.UserRepository
 import com.example.posttemplate.domain.extensions.toDomain
 import com.example.posttemplate.domain.models.User
-import com.example.posttemplate.utils.check
+import com.example.posttemplate.util.check
 
 interface UserService {
     suspend fun getUserById(id: Int): Either<Throwable, User>

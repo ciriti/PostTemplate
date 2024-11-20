@@ -9,7 +9,7 @@ import com.example.posttemplate.data.models.UserDto
 import com.example.posttemplate.domain.models.Address
 import com.example.posttemplate.domain.models.Company
 import com.example.posttemplate.domain.models.User
-import com.example.posttemplate.utils.fail
+import com.example.posttemplate.util.fail
 
 fun UserDto.toDomain(): User {
     return User(

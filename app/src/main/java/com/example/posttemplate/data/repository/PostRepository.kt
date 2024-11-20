@@ -5,7 +5,7 @@ import com.example.posttemplate.data.local.PostDao
 import com.example.posttemplate.data.local.PostEntity
 import com.example.posttemplate.data.models.PostDto
 import com.example.posttemplate.data.remote.ApiService
-import com.example.posttemplate.utils.check
+import com.example.posttemplate.util.check
 
 interface PostRepository {
     suspend fun getPosts(): Either<Throwable, List<PostDto>>

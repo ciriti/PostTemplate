@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.util"
+    namespace = "com.example.posttemplate.util"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
@@ -33,6 +33,8 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.arrow.core)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

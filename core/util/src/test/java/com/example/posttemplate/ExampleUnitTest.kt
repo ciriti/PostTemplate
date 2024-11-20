@@ -1,4 +1,4 @@
-package com.example.util
+package com.example.posttemplate
 
 import org.junit.Test
 

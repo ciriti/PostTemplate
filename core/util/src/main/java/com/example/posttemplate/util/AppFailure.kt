@@ -1,4 +1,4 @@
-package com.example.posttemplate.utils
+package com.example.posttemplate.util
 
 sealed class AppFailure(message: String? = null, cause: Throwable? = null) : Throwable(message, cause) {
     class NetworkFailure(message: String? = null, cause: Throwable? = null) : AppFailure(message, cause)
