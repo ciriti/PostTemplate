@@ -2,14 +2,15 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.autonomousapps.dependency-analysis")
 }
 
 android {
-    namespace = "com.example.posttemplate"
+    namespace = "com.example.posttemplate.ui"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.example.posttemplate"
+        applicationId = "com.example.ui"
         minSdk = ProjectConfig.minSdk
         targetSdk = ProjectConfig.targetSdk
         versionCode = 1
@@ -30,7 +31,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = ProjectConfig.jvmTarget
@@ -38,22 +38,6 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
-    }
-    packaging {
-        resources {
-            excludes.addAll(
-                listOf(
-                    "META-INF/LICENSE-notice.md",
-                    "META-INF/LICENSE.md",
-                    "META-INF/LICENSE.txt",
-                    "META-INF/DEPENDENCIES",
-                    "META-INF/NOTICE",
-                    "META-INF/NOTICE.txt",
-                    "META-INF/README.md",
-                    "META-INF/README.txt"
-                )
-            )
-        }
     }
 }
 
@@ -90,37 +74,7 @@ dependencies {
 
     implementation(libs.androidx.material3)
 
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
-
-    implementation(libs.androidx.preference)
-
-    testImplementation("io.insert-koin:koin-test:4.0.0")
-    // Koin for JUnit 4
-    testImplementation("io.insert-koin:koin-test-junit4:4.0.0")
-    // Koin for JUnit 5
-    testImplementation("io.insert-koin:koin-test-junit5:4.0.0")
-    testImplementation("io.insert-koin:koin-android-test:4.0.0")
-
     testImplementation(libs.junit)
-    testImplementation(libs.androidx.compose.ui.test.junit4)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
-    testImplementation(libs.androidx.navigation.testing)
-    androidTestImplementation(libs.androidx.navigation.testing)
-
-    androidTestImplementation(libs.mockk.android)
-    testImplementation(libs.mockk)
-    testImplementation(libs.turbine)
-
-    testImplementation(libs.kotlinx.coroutines.test)
-
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    androidTestImplementation(libs.androidx.navigation.testing)
-
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
 }
