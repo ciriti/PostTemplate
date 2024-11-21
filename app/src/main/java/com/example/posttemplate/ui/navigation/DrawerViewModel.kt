@@ -19,8 +19,4 @@ class DrawerViewModel(val authRepository: AuthRepository) : ViewModel() {
     fun logOut() {
         authRepository.setUserSignedIn(false)
     }
-
-    fun isTopBarVisible(route: String?): Boolean {
-        return route != Route.Authentication.route
-    }
 }

@@ -25,15 +25,14 @@ import com.example.posttemplate.ui.components.DisplayAlertDialog
 import com.example.posttemplate.ui.components.DrawerContent
 import com.example.posttemplate.ui.components.TopAppBar
 import com.example.posttemplate.ui.components.isLargeScreen
-import com.example.posttemplate.ui.screen.auth.AuthenticationViewModel
-import com.example.posttemplate.ui.screen.auth.navigation.authenticationRoute
-import com.example.posttemplate.posts.ui.HomeIntent
-import com.example.posttemplate.posts.ui.HomeScreen
+import com.example.posttemplate.auth.ui.AuthenticationViewModel
+import com.example.posttemplate.auth.ui.navigation.authenticationRoute
 import com.example.posttemplate.posts.ui.HomeViewModel
 import com.example.posttemplate.posts.ui.navigation.postsRoute
-import com.example.posttemplate.ui.screens.profile.ProfileIntent
-import com.example.posttemplate.ui.screens.profile.ProfileScreen
-import com.example.posttemplate.ui.screens.profile.ProfileViewModel
+import com.example.posttemplate.profile.ui.ProfileIntent
+import com.example.posttemplate.profile.ui.ProfileScreen
+import com.example.posttemplate.profile.ui.ProfileViewModel
+import com.example.posttemplate.profile.ui.navigation.profileRoute
 import kotlinx.coroutines.launch
 import org.koin.compose.koinInject
 
@@ -113,21 +112,5 @@ fun SetupNavGraph(
                 profileRoute(profileViewModel)
             }
         }
-    }
-}
-
-fun NavGraphBuilder.profileRoute(profileViewModel: ProfileViewModel) {
-    composable(
-        route = Route.Profile.route + "/{userId}",
-        arguments = listOf(navArgument("userId") { type = NavType.IntType })
-    ) { backStackEntry ->
-        val userId = backStackEntry.arguments?.getInt("userId") ?: return@composable
-        LaunchedEffect(Unit) {
-            profileViewModel.handleIntent(ProfileIntent.LoadProfile(userId))
-        }
-        ProfileScreen(
-            state = profileViewModel.state.collectAsState().value,
-            onBack = { /* Handle navigation back */ }
-        )
     }
 }

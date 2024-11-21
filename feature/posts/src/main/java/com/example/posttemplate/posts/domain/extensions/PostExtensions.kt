@@ -1,4 +1,4 @@
-package com.example.posttemplate.posts.domain.extensions
+package com.example.posttemplate.posts.utils
 
 import com.example.posttemplate.data.local.PostEntity
 import com.example.posttemplate.data.models.PostDto

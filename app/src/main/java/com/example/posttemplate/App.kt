@@ -1,9 +1,11 @@
 package com.example.posttemplate
 
 import android.app.Application
-import com.example.posttemplate.data.dataModule
+import com.example.posttemplate.data.di.dataModule
 import com.example.posttemplate.di.appModule
-import com.example.posttemplate.ui.screen.auth.authModule
+import com.example.posttemplate.auth.di.authModule
+import com.example.posttemplate.posts.di.postsModule
+import com.example.posttemplate.profile.di.profileModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -15,6 +17,8 @@ class App : Application() {
             androidContext(this@App)
             modules(dataModule)
             modules(authModule)
+            modules(profileModule)
+            modules(postsModule)
             modules(appModule)
         }
     }
