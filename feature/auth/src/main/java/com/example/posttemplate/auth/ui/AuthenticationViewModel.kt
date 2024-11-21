@@ -36,5 +36,4 @@ class AuthenticationViewModel(private val authRepository: AuthRepository) :
             _effect.emit(AuthenticationEffect.NavigateToHome)
         }
     }
-
 }

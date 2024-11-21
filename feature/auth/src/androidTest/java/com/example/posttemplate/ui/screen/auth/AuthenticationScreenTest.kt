@@ -31,6 +31,7 @@ class AuthenticationScreenTest {
         composeTestRule.onNodeWithTag("AuthSubtitle").assertIsDisplayed()
         composeTestRule.onNodeWithTag("GoogleButton").assertIsDisplayed()
     }
+
     @Test
     fun testGoogleButtonClickTriggersCallbacks() {
         // Arrange

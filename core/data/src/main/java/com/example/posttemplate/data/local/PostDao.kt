@@ -12,7 +12,6 @@ interface PostDao {
 
 fun PostDao.Companion.create(postTable: ConcurrentHashMap<Int, PostEntity>): PostDao = MockPostDao(postTable)
 
-
 private class MockPostDao(
     private val postTable: ConcurrentHashMap<Int, PostEntity>
 ) : PostDao {

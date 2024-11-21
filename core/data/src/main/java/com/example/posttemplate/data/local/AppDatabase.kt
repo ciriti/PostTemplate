@@ -2,7 +2,6 @@ package com.example.posttemplate.data.local
 
 import java.util.concurrent.ConcurrentHashMap
 
-
 interface AppDatabase {
     fun postDao(): PostDao
     fun userDao(): UserDao

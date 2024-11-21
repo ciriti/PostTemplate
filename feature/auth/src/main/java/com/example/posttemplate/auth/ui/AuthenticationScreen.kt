@@ -57,13 +57,13 @@ fun AuthenticationScreen(
                 Text(
                     text = stringResource(id = R.string.auth_title),
                     fontSize = MaterialTheme.typography.titleLarge.fontSize,
-                    modifier = Modifier.testTag("AuthTitle"),
+                    modifier = Modifier.testTag("AuthTitle")
                 )
                 Text(
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
                     text = stringResource(id = R.string.auth_subtitle),
                     fontSize = MaterialTheme.typography.bodyMedium.fontSize,
-                    modifier = Modifier.testTag("AuthSubtitle"),
+                    modifier = Modifier.testTag("AuthSubtitle")
                 )
             }
             Column(
@@ -83,8 +83,6 @@ fun AuthenticationScreen(
             }
         }
     }
-
-
 }
 
 @Preview(showBackground = true)

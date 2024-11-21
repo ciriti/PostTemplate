@@ -86,5 +86,4 @@ class PostsServiceTest {
         assert(result.isLeft())
         assertEquals(exception, (result as Either.Left).value.cause)
     }
-
 }

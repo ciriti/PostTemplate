@@ -31,10 +31,9 @@ import com.example.posttemplate.ui.navigation.Route
 fun DrawerContent(
     currentDestination: String?,
     onNavigate: (String) -> Unit,
-    onLogOut: () -> Unit,
+    onLogOut: () -> Unit
 
-    ) {
-
+) {
     Column(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.surface)

@@ -2,7 +2,6 @@ package com.example.posttemplate.profile.ui
 
 import com.example.posttemplate.profile.domain.model.User
 
-
 data class ProfileState(
     val isLoading: Boolean = false,
     val user: User? = null,

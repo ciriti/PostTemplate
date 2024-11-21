@@ -5,7 +5,6 @@ import com.example.posttemplate.data.models.PostDto
 import com.example.posttemplate.posts.domain.model.Post
 import com.example.posttemplate.util.fail
 
-
 fun PostDto.toDomain(authorId: Int): Post {
     return Post(
         id = this.id,

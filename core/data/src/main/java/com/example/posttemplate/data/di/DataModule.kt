@@ -10,7 +10,6 @@ import com.example.posttemplate.data.remote.NetworkClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-
 val dataModule = module {
 
     single {
@@ -23,5 +22,4 @@ val dataModule = module {
 
     single<PostDao> { get<AppDatabase>().postDao() }
     single<UserDao> { get<AppDatabase>().userDao() }
-
 }

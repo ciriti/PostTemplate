@@ -28,7 +28,8 @@ class PostsScreenTest {
             HomeScreen(
                 state = state,
                 onRetry = {},
-                onNavigateToDetails = {})
+                onNavigateToDetails = {}
+            )
         }
 
         // Assert
@@ -50,7 +51,8 @@ class PostsScreenTest {
             HomeScreen(
                 state = state,
                 onRetry = {},
-                onNavigateToDetails = {})
+                onNavigateToDetails = {}
+            )
         }
 
         // Assert
@@ -75,7 +77,8 @@ class PostsScreenTest {
             HomeScreen(
                 state = state,
                 onRetry = {},
-                onNavigateToDetails = {})
+                onNavigateToDetails = {}
+            )
         }
 
         // Assert
@@ -95,7 +98,6 @@ class PostsScreenTest {
             posts = posts,
             errorMessage = null
         )
-
 
         composeTestRule.setContent {
             HomeScreen(

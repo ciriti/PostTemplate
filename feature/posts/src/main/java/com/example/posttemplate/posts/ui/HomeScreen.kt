@@ -5,9 +5,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.posttemplate.ui.components.LoadingIndicator
-import com.example.posttemplate.posts.ui.components.PostItem
 import com.example.posttemplate.posts.domain.model.Post
+import com.example.posttemplate.posts.ui.components.PostItem
+import com.example.posttemplate.ui.components.LoadingIndicator
 
 @Composable
 fun HomeScreen(

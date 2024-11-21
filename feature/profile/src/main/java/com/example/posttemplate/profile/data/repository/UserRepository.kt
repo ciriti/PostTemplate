@@ -69,7 +69,6 @@ fun CompanyEntity.toDto(): CompanyDto {
     )
 }
 
-
 fun UserDto.toEntity(): UserEntity {
     return UserEntity(
         id = this.id,

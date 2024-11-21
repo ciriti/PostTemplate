@@ -17,7 +17,7 @@ interface PostsService {
 }
 
 private class PostsServiceImpl(
-    private val postRepository: PostsRepository,
+    private val postRepository: PostsRepository
 ) : PostsService {
 
     override suspend fun getPosts(): Either<Throwable, List<Post>> =
@@ -33,5 +33,4 @@ private class PostsServiceImpl(
             val postDto = postRepository.getPostById(id).getOrHandle { throw it }
             postDto.toDomain(postDto.userId)
         }
-
 }

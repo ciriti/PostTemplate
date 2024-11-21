@@ -16,7 +16,6 @@ interface PostsRepository {
 fun PostsRepository.Companion.create(apiService: ApiService, postDao: PostDao): PostsRepository =
     PostsRepositoryImpl(apiService, postDao)
 
-
 private class PostsRepositoryImpl(
     private val apiService: ApiService,
     private val postDao: PostDao

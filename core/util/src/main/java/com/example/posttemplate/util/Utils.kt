@@ -21,7 +21,6 @@ suspend fun <T> check(block: suspend () -> T): Either<AppFailure, T> {
     }
 }
 
-
 fun String.fail(): Nothing {
     // customise your logic
     throw RuntimeException(this)
