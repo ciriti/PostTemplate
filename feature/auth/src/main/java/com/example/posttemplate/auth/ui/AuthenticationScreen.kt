@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.screen.auth
+package com.example.posttemplate.auth.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image

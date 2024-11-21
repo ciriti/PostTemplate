@@ -1,4 +1,4 @@
-package com.example.posttemplate.data.repository
+package com.example.posttemplate.profile.data.repository
 
 import arrow.core.Either
 import com.example.posttemplate.data.local.AddressEntity

@@ -1,4 +1,4 @@
-package com.example.posttemplate.domain.models
+package com.example.posttemplate.profile.domain.model
 
 data class User(
     val id: Int,

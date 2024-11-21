@@ -1,12 +1,8 @@
-package com.example.posttemplate.ui
+package com.example.posttemplate.posts.ui
 
 import app.cash.turbine.turbineScope
 import arrow.core.Either
 import com.example.posttemplate.posts.domain.model.Post
-import com.example.posttemplate.posts.ui.HomeEffect
-import com.example.posttemplate.posts.ui.HomeIntent
-import com.example.posttemplate.posts.ui.HomeState
-import com.example.posttemplate.posts.ui.HomeViewModel
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

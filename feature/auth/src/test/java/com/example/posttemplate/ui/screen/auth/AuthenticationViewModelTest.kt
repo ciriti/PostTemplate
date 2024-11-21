@@ -2,6 +2,9 @@ package com.example.posttemplate.ui.screen.auth
 
 import app.cash.turbine.turbineScope
 import com.example.posttemplate.data.repository.AuthRepository
+import com.example.posttemplate.auth.ui.AuthenticationEffect
+import com.example.posttemplate.auth.ui.AuthenticationIntent
+import com.example.posttemplate.auth.ui.AuthenticationViewModel
 import io.mockk.coVerify
 import io.mockk.justRun
 import io.mockk.mockk

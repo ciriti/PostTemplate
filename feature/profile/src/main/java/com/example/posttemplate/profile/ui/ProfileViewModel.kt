@@ -1,7 +1,7 @@
-package com.example.posttemplate.ui.screens.profile
+package com.example.posttemplate.profile.ui
 
 import androidx.lifecycle.viewModelScope
-import com.example.posttemplate.domain.services.UserService
+import com.example.posttemplate.profile.domain.service.UserService
 import com.example.posttemplate.ui.components.BaseViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

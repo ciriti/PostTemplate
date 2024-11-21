@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.posttemplate.auth"
+    namespace = "com.example.posttemplate.profile"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
@@ -93,5 +93,4 @@ dependencies {
     testImplementation(libs.koin.test)
     testImplementation(libs.koin.test.junit4)
     testImplementation(libs.koin.android.test)
-
 }

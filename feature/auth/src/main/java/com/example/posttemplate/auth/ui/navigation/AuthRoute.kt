@@ -1,13 +1,13 @@
-package com.example.posttemplate.ui.screen.auth.navigation
+package com.example.posttemplate.auth.ui.navigation
 
 import androidx.compose.runtime.collectAsState
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.example.posttemplate.ui.navigation.Route
-import com.example.posttemplate.ui.screen.auth.AuthenticationIntent
-import com.example.posttemplate.ui.screen.auth.AuthenticationScreen
-import com.example.posttemplate.ui.screen.auth.AuthenticationViewModel
+import com.example.posttemplate.auth.ui.AuthenticationIntent
+import com.example.posttemplate.auth.ui.AuthenticationScreen
+import com.example.posttemplate.auth.ui.AuthenticationViewModel
 
 fun NavGraphBuilder.authenticationRoute(
     navController: NavHostController,

@@ -1,4 +1,4 @@
-package com.example.posttemplate.domain.extensions
+package com.example.posttemplate.profile.domain.extensions
 
 import com.example.posttemplate.data.local.AddressEntity
 import com.example.posttemplate.data.local.CompanyEntity
@@ -6,9 +6,9 @@ import com.example.posttemplate.data.local.UserEntity
 import com.example.posttemplate.data.models.AddressDto
 import com.example.posttemplate.data.models.CompanyDto
 import com.example.posttemplate.data.models.UserDto
-import com.example.posttemplate.domain.models.Address
-import com.example.posttemplate.domain.models.Company
-import com.example.posttemplate.domain.models.User
+import com.example.posttemplate.profile.domain.model.Address
+import com.example.posttemplate.profile.domain.model.Company
+import com.example.posttemplate.profile.domain.model.User
 import com.example.posttemplate.util.fail
 
 fun UserDto.toDomain(): User {

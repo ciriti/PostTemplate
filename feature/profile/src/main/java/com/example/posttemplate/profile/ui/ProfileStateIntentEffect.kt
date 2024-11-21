@@ -1,6 +1,7 @@
-package com.example.posttemplate.ui.screens.profile
+package com.example.posttemplate.profile.ui
 
-import com.example.posttemplate.domain.models.User
+import com.example.posttemplate.profile.domain.model.User
+
 
 data class ProfileState(
     val isLoading: Boolean = false,

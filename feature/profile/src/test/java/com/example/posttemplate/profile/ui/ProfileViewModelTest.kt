@@ -1,13 +1,9 @@
-package com.example.posttemplate.ui.screens.profile
+package com.example.posttemplate.profile.ui
 
 import app.cash.turbine.turbineScope
 import arrow.core.Either
 import com.example.posttemplate.profile.domain.model.User
 import com.example.posttemplate.profile.domain.service.UserService
-import com.example.posttemplate.profile.ui.ProfileEffect
-import com.example.posttemplate.profile.ui.ProfileIntent
-import com.example.posttemplate.profile.ui.ProfileState
-import com.example.posttemplate.profile.ui.ProfileViewModel
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

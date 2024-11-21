@@ -1,7 +1,7 @@
 package com.example.posttemplate.posts.ui
 
 import androidx.lifecycle.viewModelScope
-import com.example.posttemplate.posts.domain.service.PostService
+import com.example.posttemplate.posts.domain.service.PostsService
 import com.example.posttemplate.ui.components.BaseViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    private val service: PostService
+    private val service: PostsService
 ) : BaseViewModel<HomeState, HomeEffect, HomeIntent>() {
 
     private val _state = MutableStateFlow(HomeState())

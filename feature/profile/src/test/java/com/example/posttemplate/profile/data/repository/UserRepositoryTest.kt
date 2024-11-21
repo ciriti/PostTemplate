@@ -1,4 +1,4 @@
-package com.example.posttemplate.data.repository
+package com.example.posttemplate.profile.data.repository
 
 import arrow.core.Either
 import com.example.posttemplate.data.local.AddressEntity
@@ -9,7 +9,6 @@ import com.example.posttemplate.data.models.AddressDto
 import com.example.posttemplate.data.models.CompanyDto
 import com.example.posttemplate.data.models.UserDto
 import com.example.posttemplate.data.remote.ApiService
-import com.example.posttemplate.profile.data.repository.UserRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

@@ -2,25 +2,23 @@ package com.example.posttemplate.posts.domain.service
 
 import arrow.core.Either
 import arrow.core.getOrHandle
-import com.example.posttemplate.data.repository.PostRepository
-import com.example.posttemplate.data.repository.UserRepository
+import com.example.posttemplate.posts.data.repository.PostsRepository
 import com.example.posttemplate.posts.domain.extensions.toDomain
 import com.example.posttemplate.posts.domain.model.Post
 
-interface PostService {
+interface PostsService {
     suspend fun getPosts(): Either<Throwable, List<Post>>
     suspend fun getPostById(id: Int): Either<Throwable, Post>
 
     companion object {
-        fun create(postRepository: PostRepository, userRepository: UserRepository): PostService =
-            PostServiceImpl(postRepository, userRepository)
+        fun create(postRepository: PostsRepository): PostsService =
+            PostsServiceImpl(postRepository)
     }
 }
 
-private class PostServiceImpl(
-    private val postRepository: PostRepository,
-    private val userRepository: UserRepository
-) : PostService {
+private class PostsServiceImpl(
+    private val postRepository: PostsRepository,
+) : PostsService {
 
     override suspend fun getPosts(): Either<Throwable, List<Post>> =
         com.example.posttemplate.util.check {
