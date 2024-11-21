@@ -1,4 +1,4 @@
-package com.example.posttemplate.data.repository
+package com.example.posttemplate.auth.data.repository
 
 import android.content.SharedPreferences
 

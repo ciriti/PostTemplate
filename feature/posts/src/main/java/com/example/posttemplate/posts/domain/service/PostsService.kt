@@ -5,6 +5,7 @@ import arrow.core.getOrHandle
 import com.example.posttemplate.posts.data.repository.PostsRepository
 import com.example.posttemplate.posts.domain.extensions.toDomain
 import com.example.posttemplate.posts.domain.model.Post
+import com.example.posttemplate.util.check
 
 interface PostsService {
     suspend fun getPosts(): Either<Throwable, List<Post>>
@@ -21,7 +22,7 @@ private class PostsServiceImpl(
 ) : PostsService {
 
     override suspend fun getPosts(): Either<Throwable, List<Post>> =
-        com.example.posttemplate.util.check {
+        check {
             val postsDto = postRepository.getPosts().getOrHandle { throw it }
             postsDto.map { postDto ->
                 postDto.toDomain(postDto.userId)
@@ -29,7 +30,7 @@ private class PostsServiceImpl(
         }
 
     override suspend fun getPostById(id: Int): Either<Throwable, Post> =
-        com.example.posttemplate.util.check {
+        check {
             val postDto = postRepository.getPostById(id).getOrHandle { throw it }
             postDto.toDomain(postDto.userId)
         }

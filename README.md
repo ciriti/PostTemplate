@@ -1,8 +1,10 @@
-# PostTemplate App
+# MultiModuleBestPractices
 
 ## Introduction
 
-PostTemplate is an Android application designed to manage and navigate through various screens, leveraging modern architecture principles. The app includes authentication, home screens, and seamless navigation across multiple components.
+`MultiModuleBestPractices` is an Android application designed with a modular architecture to promote scalability, testability, and maintainability. It demonstrates best practices for structuring multi-module Android apps using modern Android development tools like Jetpack Compose, Kotlin Coroutines, and Dependency Injection (DI).
+
+---
 
 ## Table of Contents
 
@@ -10,161 +12,294 @@ PostTemplate is an Android application designed to manage and navigate through v
 - [Features](#features)
 - [App Flow](#app-flow)
 - [Architecture](#architecture)
+- [Modules Overview](#modules-overview)
 - [Setup and Installation](#setup-and-installation)
 - [Running the Application](#running-the-application)
 - [Testing](#testing)
 - [Dependencies](#dependencies)
 - [Error Handling](#error-handling)
 
+---
+
 ## Features
 
-- **Authentication**: User login and authentication flow.
-- **Navigation**: Navigate across screens with a structured NavGraph.
-- **Home Screen**: Display data with reactive UI and view models.
-- **State Management**: Handle state, intents, and effects for a clean UI logic.
+- **Multi-Module Architecture**: A modular structure for improved reusability and team collaboration.
+- **Authentication**: Secure login and session management.
+- **Navigation**: Centralized navigation with a flexible NavGraph.
+- **Home and Profile Screens**: Feature-specific modules for core app functionality.
+- **State Management**: Clean separation of UI state and business logic.
+- **Local and Remote Data Handling**: Uses Room Database and Retrofit for managing data sources.
+
+---
 
 ## App Flow
 
-- The app starts with the **Authentication Screen**, allowing users to log in.
-- Upon successful login, users are directed to the **Home Screen**, which displays relevant data.
-- Navigation is managed by a central `SetupNavGraph.kt` file, ensuring a smooth transition between different routes.
+- The app begins with the **Authentication Screen** for user login.
+- After authentication, users can access the **Home Screen** and **Profile Screen**, where feature-specific data is displayed.
+- The navigation is centrally managed using a `NavGraph`, ensuring smooth transitions between modules.
+
+---
 
 ## Architecture
 
-The application follows a clean architecture model to maintain scalability and testability.
+The application follows **Clean Architecture** principles, organized into feature modules. Each module is further divided into **data**, **domain**, and **presentation layers** for better separation of concerns.
+
+---
 
 ### Layers
 
-1. **Presentation Layer**: Contains UI and ViewModel logic.
-2. **Domain Layer**: Contains state and intent models.
-3. **Navigation Layer**: Manages navigation using `NavGraph`.
-4. **Data Layer**: Handles external data sources.
+1. **Presentation Layer**:
+    - UI screens and components.
+    - ViewModels for state management and business logic handling.
 
-### Directory Structure
+2. **Domain Layer**:
+    - Defines core application logic.
+    - Includes use cases, state models, and data transformation logic.
 
-```
-.
-├── App.kt
-├── MainActivity.kt
-├── data
-│   ├── local
-│   │   ├── Database.kt
-│   │   ├── PostDao.kt
-│   │   ├── PostEntity.kt
-│   │   ├── UserDao.kt
-│   │   └── UserEntity.kt
-│   ├── models
-│   │   ├── PostDto.kt
-│   │   └── UserDto.kt
-│   ├── remote
-│   │   ├── ApiService.kt
-│   │   └── NetworkClient.kt
-│   └── repository
-│       ├── AuthRepository.kt
-│       ├── PostRepository.kt
-│       └── UserRepository.kt
-├── di
-│   └── AppModule.kt
-├── domain
-│   ├── extensions
-│   │   ├── PostExtensions.kt
-│   │   └── UserExtensions.kt
-│   ├── models
-│   │   ├── Post.kt
-│   │   └── User.kt
-│   └── services
-│       ├── PostService.kt
-│       └── UserService.kt
-├── ui
-│   ├── components
-│   │   ├── AdaptiveNavigationDrawer.kt
-│   │   ├── BaseViewModel.kt
-│   │   ├── DrawerContent.kt
-│   │   ├── DrawerViewModel.kt
-│   │   ├── GoogleButton.kt
-│   │   ├── LoadingIndicator.kt
-│   │   ├── PostItem.kt
-│   │   ├── TopAppBar.kt
-│   │   └── Utils.kt
-│   ├── navigation
-│   │   ├── Route.kt
-│   │   └── SetupNavGraph.kt
-│   ├── screens
-│   │   ├── auth
-│   │   │   ├── AuthStateEffectIntent.kt
-│   │   │   ├── AuthenticationScreen.kt
-│   │   │   └── AuthenticationViewModel.kt
-│   │   ├── home
-│   │   │   ├── HomeScreen.kt
-│   │   │   ├── HomeStateIntentEffect.kt
-│   │   │   └── HomeViewModel.kt
-│   │   └── profile
-│   │       ├── ProfileScreen.kt
-│   │       ├── ProfileStateIntentEffect.kt
-│   │       └── ProfileViewModel.kt
-│   └── theme
-│       ├── Color.kt
-│       ├── Theme.kt
-│       └── Type.kt
-└── utils
+3. **Data Layer**:
+    - Responsible for data management.
+    - Local (Room database) and remote (API services) sources.
+    - Repository pattern used for data abstraction.
 
+---
+
+### Modules Overview
+
+#### **App Module**
+
+- Acts as the entry point of the application.
+- Contains the main activity, application-level DI configurations (`AppModule`), and navigation setup (`SetupNavGraph`).
+
+#### **Core Module**
+
+- Shared logic used across feature modules.
+- **Core/Data**:
+    - `local`: Room database entities, DAOs, and database configuration.
+    - `remote`: Retrofit services and network clients.
+    - `repository`: Shared repositories (e.g., `AuthRepository`).
+- **Core/UI**:
+    - Shared UI components (e.g., navigation drawer, loading indicators).
+
+#### **Feature Modules**
+
+- **Auth Module**:
+    - Handles authentication (login, logout, session management).
+    - Contains its own `AuthRepository`, ViewModels, and UI screens (e.g., `AuthenticationScreen`).
+
+- **Posts Module**:
+    - Displays user posts.
+    - Includes ViewModels (`HomeViewModel`), repositories, and data models for posts.
+
+- **Profile Module**:
+    - Displays user profile details.
+    - Includes ViewModels (`ProfileViewModel`), repositories, and data models for user information.
+
+---
+
+### Updated Directory Structure
 
 ```
+MultiModuleBestPractices/
+├── app
+│   ├── manifests
+│   ├── kotlin+java
+│   │   ├── com.example.posttemplate.di
+│   │   │   └── AppModule.kt
+│   │   ├── com.example.posttemplate.ui.navigation
+│   │   │   ├── DrawerViewModel.kt
+│   │   │   └── SetupNavGraph.kt
+│   │   ├── App.kt
+│   │   └── MainActivity.kt
+│   └── ...
+├── core
+│   ├── data
+│   │   ├── di
+│   │   │   └── DataModule.kt
+│   │   ├── local
+│   │   │   ├── AppDatabase.kt
+│   │   │   ├── PostDao.kt
+│   │   │   ├── PostEntity.kt
+│   │   │   ├── UserDao.kt
+│   │   │   └── UserEntity.kt
+│   │   ├── models
+│   │   │   ├── PostDto.kt
+│   │   │   └── UserDto.kt
+│   │   ├── remote
+│   │   │   ├── ApiService.kt
+│   │   │   └── NetworkClient.kt
+│   │   └── repository
+│   │       └── AuthRepository.kt
+│   ├── ui
+│   │   ├── components
+│   │   │   ├── AdaptiveNavigationDrawer.kt
+│   │   │   ├── LoadingIndicator.kt
+│   │   │   └── ...
+│   │   ├── navigation
+│   │   │   └── Route.kt
+│   │   └── theme
+│   │       ├── Color.kt
+│   │       ├── Theme.kt
+│   │       └── Type.kt
+│   └── ...
+├── feature
+│   ├── auth
+│   │   ├── di
+│   │   │   └── AuthModule.kt
+│   │   ├── ui.navigation
+│   │   │   ├── AuthenticationScreen.kt
+│   │   │   ├── AuthenticationViewModel.kt
+│   │   │   └── AuthStateEffectIntent.kt
+│   │   └── ...
+│   ├── posts
+│   │   ├── di
+│   │   │   └── PostsModule.kt
+│   │   ├── ui.navigation
+│   │   │   ├── HomeScreen.kt
+│   │   │   ├── HomeViewModel.kt
+│   │   │   └── ...
+│   │   └── ...
+│   ├── profile
+│   │   ├── di
+│   │   │   └── ProfileModule.kt
+│   │   ├── ui.navigation
+│   │   │   ├── ProfileScreen.kt
+│   │   │   ├── ProfileViewModel.kt
+│   │   │   └── ...
+│   │   └── ...
+│   └── ...
+└── ...
 
-### Explanation
+```
 
-- **Authentication**: Handled in the `auth` package, with state management in `AuthStateEffectIntent.kt`.
-- **Home Screen**: Managed in the `home` package, including ViewModel and UI components.
-- **Navigation**: Defined in `Route.kt` and `SetupNavGraph.kt` for a centralized structure.
+---
 
 ## Setup and Installation
 
 ### Prerequisites
 
-- Android Studio installed with the latest SDK tools.
-- Gradle configured for the project.
+- **Android Studio**: Latest version installed.
+- **Kotlin**: Make sure Kotlin is configured in the IDE.
 
-### Steps
+---
+
+### Steps to Run
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/your-username/multimodulebestpractices.git
+   cd multimodulebestpractices
    ```
 
 2. Open the project in Android Studio.
-3. Sync Gradle and install dependencies.
 
-## Running the Application
+3. Sync the project dependencies by running:
 
-1. Ensure you have an emulator or device connected.
-2. Build and run the app:
+   ```bash
+   ./gradlew dependencies
+   ```
+
+4. Run the app:
 
    ```bash
    ./gradlew assembleDebug
    ```
 
+---
+
 ## Testing
 
-- Unit tests are located in the `test` directory.
-- Run tests using:
+- **Unit Tests**:
+  Run all unit tests:
 
   ```bash
   ./gradlew test
   ```
 
+- **Instrumentation Tests**:
+  Run all Android instrumentation tests:
+
+  ```bash
+  ./gradlew connectedAndroidTest
+  ```
+
+---
+
 ## Dependencies
 
-- **Jetpack Compose**: For modern UI development.
-- **Kotlin Coroutines**: For asynchronous programming.
-- **Navigation Component**: For managing app navigation.
-- **Material Design**: For consistent UI components.
+- **Jetpack Compose**: For building the UI.
+- **Koin**: Dependency injection.
+- **Retrofit**: REST API integration.
+- **Room**: Local database.
+- **Kotlin Coroutines**: Asynchronous programming.
+
+---
+
+#Here’s how I’ve updated the **Error Handling** section to reflect your usage of the **Either pattern** from the **Arrow library**:
+
+---
 
 ## Error Handling
 
-The app handles errors gracefully using a state-effect-intent model, ensuring that errors are properly logged and displayed to the user.
+The app uses structured error handling with ViewModels and state management to ensure consistent behavior and proper error displays in the UI.
 
---- 
+### Either Pattern with Arrow Library
 
-If you'd like any modifications or specific enhancements, let me know!
+The **Either** pattern from the **Arrow library** is used to encapsulate operations that may result in a success (`Right`) or failure (`Left`). This approach ensures a functional programming style for error handling, promoting immutability and type safety.
+
+Example implementation:
+
+```kotlin
+override suspend fun getPosts(): Either<Throwable, List<Post>> =
+    check {
+        val postsDto = postRepository.getPosts().getOrHandle { throw it }
+        postsDto.map { postDto ->
+            postDto.toDomain(postDto.userId)
+        }
+    }
+
+suspend fun <T> check(block: suspend () -> T): Either<AppFailure, T> {
+    return try {
+        Either.Right(block())
+    } catch (e: Throwable) {
+        when (e) {
+            is java.net.UnknownHostException -> AppFailure.NetworkFailure(
+                "Network not available",
+                e
+            ).left()
+            is java.sql.SQLException -> AppFailure.DatabaseFailure(
+                "Database operation failed",
+                e
+            ).left()
+            is IllegalArgumentException -> AppFailure.ValidationFailure(
+                e.message ?: "Validation error"
+            ).left()
+            else -> AppFailure.UnknownFailure(
+                "An unknown error occurred",
+                e
+            ).left()
+        }
+    }
+}
+```
+
+### Benefits of the Either Pattern
+
+- **Explicit Error Handling**: Errors are part of the function signature, making them explicit and easier to reason about.
+- **Immutable Results**: The result (`Either`) is immutable, ensuring no unexpected changes to the error state.
+- **Structured Failures**: The use of custom failure types like `AppFailure.NetworkFailure` provides detailed and categorized error handling.
+
+### App-Specific Error Types
+
+The app defines its custom failures (`AppFailure`) to handle common error scenarios:
+
+1. **NetworkFailure**: Captures network-related errors (e.g., no internet).
+2. **DatabaseFailure**: Handles database operation errors.
+3. **ValidationFailure**: Handles invalid data inputs or arguments.
+4. **UnknownFailure**: Captures any unhandled or unexpected errors.
+
+---
+
+This structured approach ensures that errors are gracefully managed and propagated throughout the app, resulting in better user feedback and a more reliable application.
+
+---

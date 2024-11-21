@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
-import com.example.posttemplate.data.repository.AuthRepository
+import com.example.posttemplate.auth.data.repository.AuthRepository
 import com.example.posttemplate.ui.navigation.Route
 import com.example.posttemplate.ui.navigation.SetupNavGraph
 import com.example.posttemplate.ui.theme.AppTheme

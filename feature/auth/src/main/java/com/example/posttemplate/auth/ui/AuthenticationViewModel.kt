@@ -1,7 +1,7 @@
 package com.example.posttemplate.auth.ui
 
 import androidx.lifecycle.viewModelScope
-import com.example.posttemplate.data.repository.AuthRepository
+import com.example.posttemplate.auth.data.repository.AuthRepository
 import com.example.posttemplate.ui.components.BaseViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow

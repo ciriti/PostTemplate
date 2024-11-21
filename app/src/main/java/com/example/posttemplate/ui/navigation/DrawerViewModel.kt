@@ -2,7 +2,7 @@ package com.example.posttemplate.ui.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
-import com.example.posttemplate.data.repository.AuthRepository
+import com.example.posttemplate.auth.data.repository.AuthRepository
 
 data class DrawerItem(
     val label: String,
