@@ -27,9 +27,10 @@ import com.example.posttemplate.ui.components.TopAppBar
 import com.example.posttemplate.ui.components.isLargeScreen
 import com.example.posttemplate.ui.screen.auth.AuthenticationViewModel
 import com.example.posttemplate.ui.screen.auth.navigation.authenticationRoute
-import com.example.posttemplate.ui.screens.home.HomeIntent
-import com.example.posttemplate.ui.screens.home.HomeScreen
-import com.example.posttemplate.ui.screens.home.HomeViewModel
+import com.example.posttemplate.posts.ui.HomeIntent
+import com.example.posttemplate.posts.ui.HomeScreen
+import com.example.posttemplate.posts.ui.HomeViewModel
+import com.example.posttemplate.posts.ui.navigation.postsRoute
 import com.example.posttemplate.ui.screens.profile.ProfileIntent
 import com.example.posttemplate.ui.screens.profile.ProfileScreen
 import com.example.posttemplate.ui.screens.profile.ProfileViewModel
@@ -108,25 +109,10 @@ fun SetupNavGraph(
                 modifier = Modifier.padding(innerPadding)
             ) {
                 authenticationRoute(navController, authViewModel)
-                homeRoute(navController, homeViewModel)
+                postsRoute(navController, homeViewModel)
                 profileRoute(profileViewModel)
             }
         }
-    }
-}
-
-fun NavGraphBuilder.homeRoute(navController: NavHostController, homeViewModel: HomeViewModel) {
-    composable(route = Route.Home.route) {
-        LaunchedEffect(Unit) {
-            homeViewModel.handleIntent(HomeIntent.LoadPosts)
-        }
-        HomeScreen(
-            state = homeViewModel.state.collectAsState().value,
-            onRetry = { homeViewModel.handleIntent(HomeIntent.LoadPosts) },
-            onNavigateToDetails = { postId ->
-                navController.navigate(Route.Profile.passUserId(postId))
-            }
-        )
     }
 }
 

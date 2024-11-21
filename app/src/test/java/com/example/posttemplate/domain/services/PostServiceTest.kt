@@ -17,8 +17,8 @@ class PostServiceTest {
     private val mockPostRepository: PostRepository = mockk()
     private val mockUserRepository: UserRepository = mockk()
 
-    private val postService: PostService =
-        PostService.create(mockPostRepository, mockUserRepository)
+    private val postService: com.example.posttemplate.posts.domain.service.PostService =
+        com.example.posttemplate.posts.domain.service.PostService.create(mockPostRepository, mockUserRepository)
 
     private val postId = 1
     private val userId = 1

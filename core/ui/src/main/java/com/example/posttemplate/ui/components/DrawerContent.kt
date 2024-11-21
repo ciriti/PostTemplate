@@ -64,8 +64,8 @@ fun DrawerContent(
 
         DrawerItem(
             label = "Home",
-            isSelected = currentDestination == Route.Home.route,
-            onClick = { onNavigate(Route.Home.route) }
+            isSelected = currentDestination == Route.Posts.route,
+            onClick = { onNavigate(Route.Posts.route) }
         )
 
         DrawerItem(
@@ -116,7 +116,7 @@ fun DrawerItem(
 @Composable
 fun DrawerContentPreview() {
     DrawerContent(
-        currentDestination = Route.Home.route,
+        currentDestination = Route.Posts.route,
         onNavigate = {},
         onLogOut = {}
     )

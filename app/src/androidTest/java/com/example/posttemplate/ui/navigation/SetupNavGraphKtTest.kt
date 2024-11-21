@@ -13,8 +13,8 @@ import com.example.posttemplate.domain.models.Post
 import com.example.posttemplate.domain.models.User
 import com.example.posttemplate.ui.screen.auth.AuthenticationState
 import com.example.posttemplate.ui.screen.auth.AuthenticationViewModel
-import com.example.posttemplate.ui.screens.home.HomeState
-import com.example.posttemplate.ui.screens.home.HomeViewModel
+import com.example.posttemplate.posts.ui.HomeState
+import com.example.posttemplate.posts.ui.HomeViewModel
 import com.example.posttemplate.ui.screens.profile.ProfileState
 import com.example.posttemplate.ui.screens.profile.ProfileViewModel
 import io.mockk.Runs
@@ -49,7 +49,7 @@ class SetupNavGraphTest {
 
         composeTestRule.setContent {
             SetupNavGraph(
-                startDestination = Route.Home.route,
+                startDestination = Route.Posts.route,
                 navController = rememberNavController(),
                 drawerViewModel = mockk(relaxed = true), // Provide other mocked ViewModels
                 authViewModel = mockk(relaxed = true),
@@ -83,7 +83,7 @@ class SetupNavGraphTest {
         // Act
         composeTestRule.setContent {
             SetupNavGraph(
-                startDestination = Route.Home.route,
+                startDestination = Route.Posts.route,
                 navController = rememberNavController(),
                 drawerViewModel = mockk(relaxed = true),
                 authViewModel = mockk(relaxed = true),
@@ -188,7 +188,7 @@ class SetupNavGraphTest {
 
         composeTestRule.setContent {
             SetupNavGraph(
-                startDestination = Route.Home.route,
+                startDestination = Route.Posts.route,
                 navController = rememberNavController(),
                 drawerViewModel = mockk(relaxed = true),
                 authViewModel = mockk(relaxed = true),
@@ -233,7 +233,7 @@ class SetupNavGraphTest {
 
         composeTestRule.setContent {
             SetupNavGraph(
-                startDestination = Route.Home.route,
+                startDestination = Route.Posts.route,
                 navController = rememberNavController(),
                 drawerViewModel = mockDrawerViewModel,
                 authViewModel = mockAuthViewModel,

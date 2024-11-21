@@ -1,6 +1,6 @@
-package com.example.posttemplate.ui.screens.home
+package com.example.posttemplate.posts.ui
 
-import com.example.posttemplate.domain.models.Post
+import com.example.posttemplate.posts.domain.model.Post
 
 data class HomeState(
     val isLoading: Boolean = false,

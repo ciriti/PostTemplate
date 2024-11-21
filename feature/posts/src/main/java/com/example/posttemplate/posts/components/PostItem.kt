@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.screens.home.components
+package com.example.posttemplate.posts.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.posttemplate.domain.models.Post
+import com.example.posttemplate.posts.domain.model.Post
 
 @Composable
 fun PostItem(post: Post, onClick: () -> Unit) {

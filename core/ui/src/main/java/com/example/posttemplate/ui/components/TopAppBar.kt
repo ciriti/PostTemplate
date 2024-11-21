@@ -25,14 +25,14 @@ fun TopAppBar(
         title = {
             Text(
                 text = when (currentDestination) {
-                    Route.Home.route -> "Home"
+                    Route.Posts.route -> "Home"
                     Route.Profile.route -> "Profile"
                     else -> "App"
                 }
             )
         },
         navigationIcon = {
-            if (currentDestination != Route.Home.route) {
+            if (currentDestination != Route.Posts.route) {
                 IconButton(onClick = onNavigateBack) {
                     Icon(
                         imageVector = Icons.Default.ArrowBack,
@@ -49,7 +49,7 @@ fun TopAppBar(
             }
         },
         actions = {
-            if (currentDestination == Route.Home.route) {
+            if (currentDestination == Route.Posts.route) {
                 IconButton(onClick = onSearchClick) {
                     Icon(
                         imageVector = Icons.Default.Search,
@@ -65,7 +65,7 @@ fun TopAppBar(
 @Composable
 fun PreviewTopAppBar() {
     TopAppBar(
-        currentDestination = Route.Home.route,
+        currentDestination = Route.Posts.route,
         onNavigateBack = { /* Handle back navigation */ },
         onMenuClick = { /* Handle search click */ },
         onSearchClick = { /* Handle search click */ }

@@ -20,7 +20,7 @@ fun NavGraphBuilder.authenticationRoute(
                 authViewModel.handleIntent(AuthenticationIntent.Authenticate)
             },
             navigateToHome = {
-                navController.navigate(Route.Home.route) {
+                navController.navigate(Route.Posts.route) {
                     popUpTo(Route.Authentication.route) { inclusive = true }
                 }
             }

@@ -1,7 +1,7 @@
-package com.example.posttemplate.ui.screens.home
+package com.example.posttemplate.posts.ui
 
 import androidx.lifecycle.viewModelScope
-import com.example.posttemplate.domain.services.PostService
+import com.example.posttemplate.posts.domain.service.PostService
 import com.example.posttemplate.ui.components.BaseViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

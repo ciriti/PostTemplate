@@ -6,11 +6,12 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.example.posttemplate.domain.models.Post
-import com.example.posttemplate.ui.components.LoadingIndicator
+import com.example.posttemplate.posts.ui.HomeScreen
+import com.example.posttemplate.posts.ui.HomeState
 import org.junit.Rule
 import org.junit.Test
 
-class HomeScreenTest {
+class PostsScreenTest {
 
     @get:Rule
     val composeTestRule = createComposeRule()
@@ -18,11 +19,18 @@ class HomeScreenTest {
     @Test
     fun testLoadingStateDisplaysLoadingIndicator() {
         // Arrange
-        val state = HomeState(isLoading = true, posts = emptyList(), errorMessage = null)
+        val state = HomeState(
+            isLoading = true,
+            posts = emptyList(),
+            errorMessage = null
+        )
 
         // Act
         composeTestRule.setContent {
-            HomeScreen(state = state, onRetry = {}, onNavigateToDetails = {})
+            HomeScreen(
+                state = state,
+                onRetry = {},
+                onNavigateToDetails = {})
         }
 
         // Assert
@@ -33,11 +41,18 @@ class HomeScreenTest {
     fun testErrorStateDisplaysErrorMessage() {
         // Arrange
         val errorMessage = "An error occurred"
-        val state = HomeState(isLoading = false, posts = emptyList(), errorMessage = errorMessage)
+        val state = HomeState(
+            isLoading = false,
+            posts = emptyList(),
+            errorMessage = errorMessage
+        )
 
         // Act
         composeTestRule.setContent {
-            HomeScreen(state = state, onRetry = {}, onNavigateToDetails = {})
+            HomeScreen(
+                state = state,
+                onRetry = {},
+                onNavigateToDetails = {})
         }
 
         // Assert
@@ -51,11 +66,18 @@ class HomeScreenTest {
             Post(id = 1, title = "First Post", body = "Body of the first post", authorId = 1),
             Post(id = 2, title = "Second Post", body = "Body of the second post", authorId = 2)
         )
-        val state = HomeState(isLoading = false, posts = posts, errorMessage = null)
+        val state = HomeState(
+            isLoading = false,
+            posts = posts,
+            errorMessage = null
+        )
 
         // Act
         composeTestRule.setContent {
-            HomeScreen(state = state, onRetry = {}, onNavigateToDetails = {})
+            HomeScreen(
+                state = state,
+                onRetry = {},
+                onNavigateToDetails = {})
         }
 
         // Assert
@@ -70,7 +92,11 @@ class HomeScreenTest {
             Post(id = 1, title = "First Post", body = "Body of the first post", authorId = 1)
         )
         var clickedPostId: Int? = null
-        val state = HomeState(isLoading = false, posts = posts, errorMessage = null)
+        val state = HomeState(
+            isLoading = false,
+            posts = posts,
+            errorMessage = null
+        )
 
 
         composeTestRule.setContent {

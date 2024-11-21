@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         }
         enableEdgeToEdge()
         val startDestination =
-            if (auth.isUserSignedIn()) Route.Home.route else Route.Authentication.route
+            if (auth.isUserSignedIn()) Route.Posts.route else Route.Authentication.route
 
         setContent {
             AppTheme {

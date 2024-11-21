@@ -1,8 +1,8 @@
-package com.example.posttemplate.domain.extensions
+package com.example.posttemplate.posts.domain.extensions
 
 import com.example.posttemplate.data.local.PostEntity
 import com.example.posttemplate.data.models.PostDto
-import com.example.posttemplate.domain.models.Post
+import com.example.posttemplate.posts.domain.model.Post
 import com.example.posttemplate.util.fail
 
 
