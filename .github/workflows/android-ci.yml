@@ -89,4 +89,6 @@ jobs:
           build-tools: 34.0.0
 
       - name: Run ktlint
-        run: ./gradlew ktlintCheck
+        run: |
+          ./gradlew ktlintFormat
+          ./gradlew ktlintCheck
