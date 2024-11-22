@@ -1,3 +1,5 @@
+[![Android CI](https://github.com/ciriti/MultiMuduleBestPractices/actions/workflows/android-ci.yml/badge.svg)](https://github.com/ciriti/MultiMuduleBestPractices/actions/workflows/android-ci.yml)
+
 # MultiModuleBestPractices
 
 ## Introduction
