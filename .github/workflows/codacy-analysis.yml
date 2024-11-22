@@ -1,0 +1,53 @@
+name: Codacy Analysis
+
+on:
+  push:
+    branches:
+      - main
+      - multi-module
+      - code-quality
+  pull_request:
+    branches:
+      - multi-module
+      - code-quality
+
+jobs:
+  codacy-analysis:
+    name: Run Codacy Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Java
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+
+      # Step 3: Cache Gradle dependencies
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle
+
+      # Step 4: Install Codacy CLI
+      - name: Install Codacy CLI
+        uses: codacy/codacy-analysis-cli-action@v3
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+
+      # Step 5: Run Codacy analysis
+      - name: Run Codacy CLI analysis
+        run: |
+          # Analyze all modules
+          ./gradlew build
+          codacy-analysis-cli analyze --tool eslint
