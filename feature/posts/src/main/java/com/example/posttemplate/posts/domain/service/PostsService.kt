@@ -1,11 +1,11 @@
-package com.example.posttemplate.posts.domain.service
+package io.github.ciriti.posts.domain.service
 
 import arrow.core.Either
 import arrow.core.getOrHandle
-import com.example.posttemplate.posts.data.repository.PostsRepository
-import com.example.posttemplate.posts.domain.extensions.toDomain
-import com.example.posttemplate.posts.domain.model.Post
-import com.example.posttemplate.util.check
+import io.github.ciriti.posts.data.repository.PostsRepository
+import io.github.ciriti.posts.domain.extensions.toDomain
+import io.github.ciriti.posts.domain.model.Post
+import io.github.ciriti.util.check
 
 interface PostsService {
     suspend fun getPosts(): Either<Throwable, List<Post>>

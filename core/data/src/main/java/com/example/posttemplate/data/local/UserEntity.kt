@@ -1,4 +1,4 @@
-package com.example.posttemplate.data.local
+package io.github.ciriti.data.local
 
 data class UserEntity(
     val id: Int,

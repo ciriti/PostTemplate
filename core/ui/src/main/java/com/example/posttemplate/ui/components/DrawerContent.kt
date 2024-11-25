@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.components
+package io.github.ciriti.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,8 +24,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.posttemplate.ui.R
-import com.example.posttemplate.ui.navigation.Route
+import io.github.ciriti.ui.R
+import io.github.ciriti.ui.navigation.Route
 
 @Composable
 fun DrawerContent(

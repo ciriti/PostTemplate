@@ -1,4 +1,4 @@
-package com.example.posttemplate.data.models
+package io.github.ciriti.data.models
 
 data class PostDto(
     val id: Int,

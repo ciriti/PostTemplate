@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.posttemplate.auth"
+    namespace = "io.github.ciriti.auth"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

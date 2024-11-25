@@ -1,12 +1,12 @@
-package com.example.posttemplate.data.di
+package io.github.ciriti.data.di
 
 import android.content.Context
-import com.example.posttemplate.data.local.AppDatabase
-import com.example.posttemplate.data.local.PostDao
-import com.example.posttemplate.data.local.UserDao
-import com.example.posttemplate.data.local.create
-import com.example.posttemplate.data.remote.ApiService
-import com.example.posttemplate.data.remote.NetworkClient
+import io.github.ciriti.data.local.AppDatabase
+import io.github.ciriti.data.local.PostDao
+import io.github.ciriti.data.local.UserDao
+import io.github.ciriti.data.local.create
+import io.github.ciriti.data.remote.ApiService
+import io.github.ciriti.data.remote.NetworkClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 

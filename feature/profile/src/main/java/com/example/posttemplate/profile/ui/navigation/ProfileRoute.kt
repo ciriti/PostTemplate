@@ -1,4 +1,4 @@
-package com.example.posttemplate.profile.ui.navigation
+package io.github.ciriti.profile.ui.navigation
 
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -6,10 +6,10 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.posttemplate.profile.ui.ProfileIntent
-import com.example.posttemplate.profile.ui.ProfileScreen
-import com.example.posttemplate.profile.ui.ProfileViewModel
-import com.example.posttemplate.ui.navigation.Route
+import io.github.ciriti.profile.ui.ProfileIntent
+import io.github.ciriti.profile.ui.ProfileScreen
+import io.github.ciriti.profile.ui.ProfileViewModel
+import io.github.ciriti.ui.navigation.Route
 
 fun NavGraphBuilder.profileRoute(profileViewModel: ProfileViewModel) {
     composable(

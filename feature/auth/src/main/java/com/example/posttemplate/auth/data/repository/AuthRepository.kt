@@ -1,4 +1,4 @@
-package com.example.posttemplate.auth.data.repository
+package io.github.ciriti.auth.data.repository
 
 import android.content.SharedPreferences
 

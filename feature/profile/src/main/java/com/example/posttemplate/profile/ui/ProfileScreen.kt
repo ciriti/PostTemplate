@@ -1,4 +1,4 @@
-package com.example.posttemplate.profile.ui
+package io.github.ciriti.profile.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,10 +20,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.posttemplate.profile.domain.model.Address
-import com.example.posttemplate.profile.domain.model.Company
-import com.example.posttemplate.profile.domain.model.User
-import com.example.posttemplate.ui.components.LoadingIndicator
+import io.github.ciriti.profile.domain.model.Address
+import io.github.ciriti.profile.domain.model.Company
+import io.github.ciriti.profile.domain.model.User
+import io.github.ciriti.ui.components.LoadingIndicator
 
 @Composable
 fun ProfileScreen(

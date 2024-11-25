@@ -1,11 +1,11 @@
-package com.example.posttemplate.posts.ui
+package io.github.ciriti.posts.ui
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
-import com.example.posttemplate.posts.domain.model.Post
+import io.github.ciriti.posts.domain.model.Post
 import org.junit.Rule
 import org.junit.Test
 

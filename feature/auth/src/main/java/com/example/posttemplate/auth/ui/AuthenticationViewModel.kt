@@ -1,8 +1,8 @@
-package com.example.posttemplate.auth.ui
+package io.github.ciriti.auth.ui
 
 import androidx.lifecycle.viewModelScope
-import com.example.posttemplate.auth.data.repository.AuthRepository
-import com.example.posttemplate.ui.components.BaseViewModel
+import io.github.ciriti.auth.data.repository.AuthRepository
+import io.github.ciriti.ui.components.BaseViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

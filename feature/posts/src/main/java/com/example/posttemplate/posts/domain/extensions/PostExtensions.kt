@@ -1,9 +1,9 @@
-package com.example.posttemplate.posts.domain.extensions
+package io.github.ciriti.posts.domain.extensions
 
-import com.example.posttemplate.data.local.PostEntity
-import com.example.posttemplate.data.models.PostDto
-import com.example.posttemplate.posts.domain.model.Post
-import com.example.posttemplate.util.fail
+import io.github.ciriti.data.local.PostEntity
+import io.github.ciriti.data.models.PostDto
+import io.github.ciriti.posts.domain.model.Post
+import io.github.ciriti.util.fail
 
 fun PostDto.toDomain(authorId: Int): Post {
     return Post(

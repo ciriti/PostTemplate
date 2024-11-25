@@ -1,6 +1,6 @@
-package com.example.posttemplate.data.remote
+package io.github.ciriti.data.remote
 
-import com.example.posttemplate.data.BuildConfig
+import io.github.ciriti.data.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,10 +1,10 @@
-package com.example.posttemplate.posts.data.repository
+package io.github.ciriti.posts.data.repository
 
 import arrow.core.Either
-import com.example.posttemplate.data.local.PostDao
-import com.example.posttemplate.data.local.PostEntity
-import com.example.posttemplate.data.models.PostDto
-import com.example.posttemplate.data.remote.ApiService
+import io.github.ciriti.data.local.PostDao
+import io.github.ciriti.data.local.PostEntity
+import io.github.ciriti.data.models.PostDto
+import io.github.ciriti.data.remote.ApiService
 
 interface PostsRepository {
     suspend fun getPosts(): Either<Throwable, List<PostDto>>
@@ -22,7 +22,7 @@ private class PostsRepositoryImpl(
 ) : PostsRepository {
 
     override suspend fun getPosts(): Either<Throwable, List<PostDto>> =
-        com.example.posttemplate.util.check {
+        io.github.ciriti.util.check {
             // Check local cache
             val cachedPosts = postDao.getAllPosts().map { it.toDto() }
             if (cachedPosts.isNotEmpty()) {
@@ -37,7 +37,7 @@ private class PostsRepositoryImpl(
         }
 
     override suspend fun getPostById(id: Int): Either<Throwable, PostDto> =
-        com.example.posttemplate.util.check {
+        io.github.ciriti.util.check {
             // Check local cache
             val cachedPost = postDao.getPostById(id)?.toDto()
             if (cachedPost != null) {

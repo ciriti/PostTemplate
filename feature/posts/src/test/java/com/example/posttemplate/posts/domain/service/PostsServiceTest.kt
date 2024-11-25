@@ -1,9 +1,9 @@
-package com.example.posttemplate.posts.domain.service
+package io.github.ciriti.posts.domain.service
 
 import arrow.core.Either
-import com.example.posttemplate.data.models.PostDto
-import com.example.posttemplate.posts.data.repository.PostsRepository
-import com.example.posttemplate.posts.domain.model.Post
+import io.github.ciriti.data.models.PostDto
+import io.github.ciriti.posts.data.repository.PostsRepository
+import io.github.ciriti.posts.domain.model.Post
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

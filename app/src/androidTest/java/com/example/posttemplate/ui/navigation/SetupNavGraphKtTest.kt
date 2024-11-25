@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.navigation
+package io.github.ciriti.ui.navigation
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -7,16 +7,16 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.navigation.compose.rememberNavController
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.posttemplate.profile.domain.model.Address
-import com.example.posttemplate.profile.domain.model.Company
-import com.example.posttemplate.profile.domain.model.User
-import com.example.posttemplate.auth.ui.AuthenticationState
-import com.example.posttemplate.auth.ui.AuthenticationViewModel
-import com.example.posttemplate.posts.domain.model.Post
-import com.example.posttemplate.posts.ui.HomeState
-import com.example.posttemplate.posts.ui.HomeViewModel
-import com.example.posttemplate.profile.ui.ProfileState
-import com.example.posttemplate.profile.ui.ProfileViewModel
+import io.github.ciriti.profile.domain.model.Address
+import io.github.ciriti.profile.domain.model.Company
+import io.github.ciriti.profile.domain.model.User
+import io.github.ciriti.auth.ui.AuthenticationState
+import io.github.ciriti.auth.ui.AuthenticationViewModel
+import io.github.ciriti.posts.domain.model.Post
+import io.github.ciriti.posts.ui.HomeState
+import io.github.ciriti.posts.ui.HomeViewModel
+import io.github.ciriti.profile.ui.ProfileState
+import io.github.ciriti.profile.ui.ProfileViewModel
 import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
