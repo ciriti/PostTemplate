@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.navigation
+package io.github.ciriti.ui.navigation
 
 sealed class Route(val route: String) {
     object Authentication : Route(route = "authentication_screen")

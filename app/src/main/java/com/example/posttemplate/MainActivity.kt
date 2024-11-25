@@ -1,4 +1,4 @@
-package com.example.posttemplate
+package io.github.ciriti
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,10 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
-import com.example.posttemplate.auth.data.repository.AuthRepository
-import com.example.posttemplate.ui.navigation.Route
-import com.example.posttemplate.ui.navigation.SetupNavGraph
-import com.example.posttemplate.ui.theme.AppTheme
+import io.github.ciriti.auth.data.repository.AuthRepository
+import io.github.ciriti.ui.navigation.Route
+import io.github.ciriti.ui.navigation.SetupNavGraph
+import io.github.ciriti.ui.theme.AppTheme
 import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {

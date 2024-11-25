@@ -1,13 +1,13 @@
-package com.example.posttemplate.posts.ui
+package io.github.ciriti.posts.ui
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.posttemplate.posts.domain.model.Post
-import com.example.posttemplate.posts.ui.components.PostItem
-import com.example.posttemplate.ui.components.LoadingIndicator
+import io.github.ciriti.posts.domain.model.Post
+import io.github.ciriti.posts.ui.components.PostItem
+import io.github.ciriti.ui.components.LoadingIndicator
 
 @Composable
 fun HomeScreen(

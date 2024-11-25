@@ -1,14 +1,14 @@
-package com.example.posttemplate.posts.ui.navigation
+package io.github.ciriti.posts.ui.navigation
 
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.example.posttemplate.posts.ui.HomeIntent
-import com.example.posttemplate.posts.ui.HomeScreen
-import com.example.posttemplate.posts.ui.HomeViewModel
-import com.example.posttemplate.ui.navigation.Route
+import io.github.ciriti.posts.ui.HomeIntent
+import io.github.ciriti.posts.ui.HomeScreen
+import io.github.ciriti.posts.ui.HomeViewModel
+import io.github.ciriti.ui.navigation.Route
 
 fun NavGraphBuilder.postsRoute(navController: NavHostController, homeViewModel: HomeViewModel) {
     composable(route = Route.Posts.route) {

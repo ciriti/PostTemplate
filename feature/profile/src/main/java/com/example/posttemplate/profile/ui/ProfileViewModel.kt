@@ -1,8 +1,8 @@
-package com.example.posttemplate.profile.ui
+package io.github.ciriti.profile.ui
 
 import androidx.lifecycle.viewModelScope
-import com.example.posttemplate.profile.domain.service.UserService
-import com.example.posttemplate.ui.components.BaseViewModel
+import io.github.ciriti.profile.domain.service.UserService
+import io.github.ciriti.ui.components.BaseViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow

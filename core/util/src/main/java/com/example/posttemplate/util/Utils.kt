@@ -1,4 +1,4 @@
-package com.example.posttemplate.util
+package io.github.ciriti.util
 
 import arrow.core.Either
 import arrow.core.left

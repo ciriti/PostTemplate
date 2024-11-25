@@ -1,10 +1,10 @@
-package com.example.posttemplate.ui.screen.auth
+package io.github.ciriti.ui.screen.auth
 
 import app.cash.turbine.turbineScope
-import com.example.posttemplate.auth.ui.AuthenticationEffect
-import com.example.posttemplate.auth.ui.AuthenticationIntent
-import com.example.posttemplate.auth.ui.AuthenticationViewModel
-import com.example.posttemplate.auth.data.repository.AuthRepository
+import io.github.ciriti.auth.ui.AuthenticationEffect
+import io.github.ciriti.auth.ui.AuthenticationIntent
+import io.github.ciriti.auth.ui.AuthenticationViewModel
+import io.github.ciriti.auth.data.repository.AuthRepository
 import io.mockk.coVerify
 import io.mockk.justRun
 import io.mockk.mockk

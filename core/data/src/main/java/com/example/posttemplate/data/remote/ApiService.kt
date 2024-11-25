@@ -1,7 +1,7 @@
-package com.example.posttemplate.data.remote
+package io.github.ciriti.data.remote
 
-import com.example.posttemplate.data.models.PostDto
-import com.example.posttemplate.data.models.UserDto
+import io.github.ciriti.data.models.PostDto
+import io.github.ciriti.data.models.UserDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 

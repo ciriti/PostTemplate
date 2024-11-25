@@ -1,8 +1,8 @@
-package com.example.posttemplate.ui.navigation
+package io.github.ciriti.ui.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
-import com.example.posttemplate.auth.data.repository.AuthRepository
+import io.github.ciriti.auth.data.repository.AuthRepository
 
 data class DrawerItem(
     val label: String,

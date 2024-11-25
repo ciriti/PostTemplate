@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.components
+package io.github.ciriti.ui.components
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button

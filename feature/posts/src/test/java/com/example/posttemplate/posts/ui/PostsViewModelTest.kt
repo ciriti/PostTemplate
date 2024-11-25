@@ -1,8 +1,8 @@
-package com.example.posttemplate.posts.ui
+package io.github.ciriti.posts.ui
 
 import app.cash.turbine.turbineScope
 import arrow.core.Either
-import com.example.posttemplate.posts.domain.model.Post
+import io.github.ciriti.posts.domain.model.Post
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -21,7 +21,7 @@ import org.junit.Test
 @OptIn(ExperimentalCoroutinesApi::class)
 class PostsViewModelTest {
 
-    private val mockPostService: com.example.posttemplate.posts.domain.service.PostsService = mockk()
+    private val mockPostService: io.github.ciriti.posts.domain.service.PostsService = mockk()
     private lateinit var viewModel: HomeViewModel
     private val testDispatcher = StandardTestDispatcher()
     private val testScope = TestScope(testDispatcher)

@@ -1,8 +1,8 @@
-package com.example.posttemplate.auth.di
+package io.github.ciriti.auth.di
 
-import com.example.posttemplate.auth.ui.AuthenticationViewModel
-import com.example.posttemplate.auth.data.repository.AuthRepository
-import com.example.posttemplate.auth.data.repository.create
+import io.github.ciriti.auth.ui.AuthenticationViewModel
+import io.github.ciriti.auth.data.repository.AuthRepository
+import io.github.ciriti.auth.data.repository.create
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 

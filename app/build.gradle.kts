@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.posttemplate"
+    namespace = "io.github.ciriti"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.example.posttemplate"
+        applicationId = "io.github.ciriti"
         minSdk = ProjectConfig.minSdk
         targetSdk = ProjectConfig.targetSdk
         versionCode = 1

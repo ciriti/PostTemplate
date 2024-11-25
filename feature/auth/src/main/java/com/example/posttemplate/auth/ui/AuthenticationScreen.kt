@@ -1,4 +1,4 @@
-package com.example.posttemplate.auth.ui
+package io.github.ciriti.auth.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
@@ -19,8 +19,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.posttemplate.auth.R
-import com.example.posttemplate.ui.components.GoogleButton
+import io.github.ciriti.auth.R
+import io.github.ciriti.ui.components.GoogleButton
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable

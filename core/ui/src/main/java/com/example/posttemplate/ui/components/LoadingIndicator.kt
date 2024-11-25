@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.components
+package io.github.ciriti.ui.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

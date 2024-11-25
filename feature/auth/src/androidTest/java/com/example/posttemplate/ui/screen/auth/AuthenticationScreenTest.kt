@@ -1,11 +1,11 @@
-package com.example.posttemplate.ui.screen.auth
+package io.github.ciriti.ui.screen.auth
 
 import androidx.compose.ui.test.assertHasNoClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
-import com.example.posttemplate.auth.ui.AuthenticationScreen
+import io.github.ciriti.auth.ui.AuthenticationScreen
 import org.junit.Rule
 import org.junit.Test
 

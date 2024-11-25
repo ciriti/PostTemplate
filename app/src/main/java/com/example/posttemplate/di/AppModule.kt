@@ -1,6 +1,6 @@
-package com.example.posttemplate.di
+package io.github.ciriti.di
 
-import com.example.posttemplate.ui.navigation.DrawerViewModel
+import io.github.ciriti.ui.navigation.DrawerViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 

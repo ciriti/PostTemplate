@@ -1,4 +1,4 @@
-package com.example.posttemplate
+package io.github.ciriti
 
 import org.junit.Assert.* //ktlint-disable
 import org.junit.Test

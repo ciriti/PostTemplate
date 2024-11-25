@@ -1,6 +1,6 @@
-package com.example.posttemplate.posts.ui
+package io.github.ciriti.posts.ui
 
-import com.example.posttemplate.posts.domain.model.Post
+import io.github.ciriti.posts.domain.model.Post
 
 data class HomeState(
     val isLoading: Boolean = false,

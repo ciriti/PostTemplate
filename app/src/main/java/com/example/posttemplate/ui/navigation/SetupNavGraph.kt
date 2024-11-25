@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.navigation
+package io.github.ciriti.ui.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.DrawerValue
@@ -20,19 +20,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
-import com.example.posttemplate.ui.components.AdaptiveNavigationDrawer
-import com.example.posttemplate.ui.components.DisplayAlertDialog
-import com.example.posttemplate.ui.components.DrawerContent
-import com.example.posttemplate.ui.components.TopAppBar
-import com.example.posttemplate.ui.components.isLargeScreen
-import com.example.posttemplate.auth.ui.AuthenticationViewModel
-import com.example.posttemplate.auth.ui.navigation.authenticationRoute
-import com.example.posttemplate.posts.ui.HomeViewModel
-import com.example.posttemplate.posts.ui.navigation.postsRoute
-import com.example.posttemplate.profile.ui.ProfileIntent
-import com.example.posttemplate.profile.ui.ProfileScreen
-import com.example.posttemplate.profile.ui.ProfileViewModel
-import com.example.posttemplate.profile.ui.navigation.profileRoute
+import io.github.ciriti.ui.components.AdaptiveNavigationDrawer
+import io.github.ciriti.ui.components.DisplayAlertDialog
+import io.github.ciriti.ui.components.DrawerContent
+import io.github.ciriti.ui.components.TopAppBar
+import io.github.ciriti.ui.components.isLargeScreen
+import io.github.ciriti.auth.ui.AuthenticationViewModel
+import io.github.ciriti.auth.ui.navigation.authenticationRoute
+import io.github.ciriti.posts.ui.HomeViewModel
+import io.github.ciriti.posts.ui.navigation.postsRoute
+import io.github.ciriti.profile.ui.ProfileIntent
+import io.github.ciriti.profile.ui.ProfileScreen
+import io.github.ciriti.profile.ui.ProfileViewModel
+import io.github.ciriti.profile.ui.navigation.profileRoute
 import kotlinx.coroutines.launch
 import org.koin.compose.koinInject
 
