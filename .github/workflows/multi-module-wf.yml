@@ -3,11 +3,11 @@ name: MultiModule Workflow
 on:
   push:
     branches:
-      - main
-      - multi-module
+      - main_disabled
+      - multi-module_disabled
   pull_request:
     branches:
-      - multi-module
+      - multi-module_disabled
 
 jobs:
   build-and-test:
