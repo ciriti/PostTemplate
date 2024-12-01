@@ -6,7 +6,14 @@ plugins {
     `maven-publish`
     signing
     id("org.jetbrains.dokka") version "1.9.0"
+
 }
+
+apply(from = rootDir.path + "/scripts/publish-mavencentral.gradle")
+
+group = project.property("GROUP_ID") as String
+version =
+    project.property("version_name") as String//rootProject.extra.get("version_name") as String
 
 android {
     namespace = "io.github.ciriti.profile"
@@ -99,65 +106,57 @@ dependencies {
     testImplementation(libs.koin.android.test)
 }
 
-
-val javadocJar = tasks.register<Jar>("javadocJar") {
-    dependsOn("dokkaJavadoc")
-    archiveClassifier.set("javadoc")
-    from(tasks.named("dokkaJavadoc"))
-}
-
-tasks.register<Jar>("androidSourcesJar") {
-    archiveClassifier.set("sources")
-    from(android.sourceSets["main"].java.srcDirs)
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("release") {
-            groupId = "io.github.ciriti"
-            artifactId = "profile"
-            version = project.version.toString()
-
-            // Manually specify the artifact file
-            artifact("$buildDir/outputs/aar/profile-release.aar")
-
-            // Attach sources and Javadoc JARs
-            artifact(tasks["androidSourcesJar"])
-            artifact(tasks["javadocJar"])
-
-            pom {
-                name.set("Profile Module")
-                description.set("A module for user profiles in Android apps")
-                url.set("https://github.com/ciriti/MultiMuduleProject")
-                licenses {
-                    license {
-                        name.set("MIT License")
-                        url.set("https://opensource.org/licenses/MIT")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("ciriti")
-                        name.set("Carmelo Iriti")
-                        email.set("ciriti@gmail.com")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/ciriti/MultiMuduleProject.git")
-                    developerConnection.set("scm:git:ssh://github.com/ciriti/MultiMuduleProject.git")
-                    url.set("https://github.com/ciriti/MultiMuduleProject")
-                }
-            }
-        }
-    }
-}
-
-
-signing {
-    useInMemoryPgpKeys(
-        System.getenv("SIGNING_KEY_ID"),
-        System.getenv("SIGNING_PRIVATE_KEY"),
-        System.getenv("SIGNING_PASSWORD")
-    )
-    sign(publishing.publications["release"])
-}
+//
+//val javadocJar = tasks.register<Jar>("javadocJar") {
+//    dependsOn("dokkaJavadoc")
+//    archiveClassifier.set("javadoc")
+//    from(tasks.named("dokkaJavadoc"))
+//}
+//
+//tasks.register<Jar>("androidSourcesJar") {
+//    archiveClassifier.set("sources")
+//    from(android.sourceSets["main"].java.srcDirs)
+//}
+//
+//publishing {
+//    publications {
+//        create<MavenPublication>("release") {
+//            groupId = "io.github.ciriti"
+//            artifactId = "profile"
+//            version = project.version.toString()
+//
+//            // Manually specify the artifact file
+//            artifact("$buildDir/outputs/aar/profile-release.aar")
+//
+//            // Attach sources and Javadoc JARs
+//            artifact(tasks["androidSourcesJar"])
+//            artifact(tasks["javadocJar"])
+//
+//            pom {
+//                name.set("Profile Module")
+//                description.set("A module for user profiles in Android apps")
+//                url.set("https://github.com/ciriti/MultiMuduleProject")
+//                licenses {
+//                    license {
+//                        name.set("MIT License")
+//                        url.set("https://opensource.org/licenses/MIT")
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id.set("ciriti")
+//                        name.set("Carmelo Iriti")
+//                        email.set("ciriti@gmail.com")
+//                    }
+//                }
+//                scm {
+//                    connection.set("scm:git:git://github.com/ciriti/MultiMuduleProject.git")
+//                    developerConnection.set("scm:git:ssh://github.com/ciriti/MultiMuduleProject.git")
+//                    url.set("https://github.com/ciriti/MultiMuduleProject")
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//
