@@ -38,15 +38,15 @@ jobs:
 
       - name: Build and test
         run: |
-          cd ${matrix.module}
+          cd ${{ matrix.module }}
           ./gradlew assembleDebug
 
       - name: Run unit tests
         run: |
-          cd ${matrix.module}
+          cd ${{ matrix.module }}
           ./gradlew testDebugUnitTest
 
 #      - name: Run UI tests
 #        run: |
-#          cd ${matrix.module}
+#          cd ${{ matrix.module }}
 #          ./gradlew connectedDebugAndroidTest
