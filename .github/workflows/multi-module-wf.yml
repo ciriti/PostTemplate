@@ -18,14 +18,8 @@ jobs:
       matrix:
         api-level: [ 21, 29, 23 ] # Test on different API levels
         target: [ assembleDebug, testDebugUnitTest ] # Build and unit test tasks
-        include:
-          - module: app
-          - module: core-ui
-          - module: core-util
-          - module: feature-auth
-          - module: core-data
-          - module: feature-posts
-          - module: feature-profile
+        module: [app, core-ui, core-util, feature-auth, core-data, feature-posts, feature-profile]  # Modules
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
