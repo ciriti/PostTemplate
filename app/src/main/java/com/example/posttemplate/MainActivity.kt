@@ -25,6 +25,7 @@ class MainActivity : ComponentActivity() {
         val startDestination =
             if (auth.isUserSignedIn()) Route.Posts.route else Route.Authentication.route
 
+        // test
         setContent {
             AppTheme {
                 val navController = rememberNavController()
