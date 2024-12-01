@@ -1,0 +1,44 @@
+name: MultiModule Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - module: app
+          - module: core-ui
+          - module: core-util
+          - module: feature-auth
+          - module: core-data
+          - module: feature-posts
+          - module: feature-profile
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java and Android SDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+          android-sdk: '29'
+
+      - name: Build and test
+        run: |
+          cd ${matrix.module}
+          ./gradlew assembleDebug
+
+      - name: Run unit tests
+        run: |
+          cd ${matrix.module}
+          ./gradlew testDebugUnitTest
+
+#      - name: Run UI tests
+#        run: |
+#          cd ${matrix.module}
+#          ./gradlew connectedDebugAndroidTest
