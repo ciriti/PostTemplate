@@ -1,9 +1,9 @@
 package io.github.ciriti
 
 import android.app.Application
+import com.example.posttemplate.auth.di.authModule
 import io.github.ciriti.data.di.dataModule
 import io.github.ciriti.di.appModule
-import io.github.ciriti.auth.di.authModule
 import io.github.ciriti.posts.di.postsModule
 import io.github.ciriti.profile.di.profileModule
 import org.koin.android.ext.koin.androidContext
