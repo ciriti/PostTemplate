@@ -6,11 +6,11 @@ plugins {
 
 android {
     namespace = "com.example.posttemplate"
-    compileSdk = ProjectConfig.compileSdk
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.example.posttemplate"
-        minSdk = ProjectConfig.minSdk
+        minSdk = libs.versions.compileSdk.get().toInt()
         targetSdk = ProjectConfig.targetSdk
         versionCode = 1
         versionName = "1.0"
@@ -33,7 +33,7 @@ android {
         isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
-        jvmTarget = ProjectConfig.jvmTarget
+        jvmTarget = libs.versions.jvmTarget.get().toString()
     }
     buildFeatures {
         compose = true

@@ -7,10 +7,10 @@ plugins {
 
 android {
     namespace = "com.example.posttemplate.data"
-    compileSdk = ProjectConfig.compileSdk
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = ProjectConfig.minSdk
+        minSdk = libs.versions.compileSdk.get().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
