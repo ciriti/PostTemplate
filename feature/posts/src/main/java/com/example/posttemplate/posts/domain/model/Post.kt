@@ -1,4 +1,4 @@
-package com.example.posttemplate.posts.domain.model
+package io.github.ciriti.posts.domain.model
 
 data class Post(
     val id: Int,

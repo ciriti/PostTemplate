@@ -1,12 +1,12 @@
-package com.example.posttemplate.components
+package io.github.ciriti.components
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
-import com.example.posttemplate.ui.R
-import com.example.posttemplate.ui.components.GoogleButton
+import io.github.ciriti.ui.R
+import io.github.ciriti.ui.components.GoogleButton
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Rule

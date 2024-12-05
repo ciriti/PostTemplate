@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.posttemplate.ui"
+    namespace = "io.github.ciriti.ui"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

@@ -1,8 +1,8 @@
-package com.example.posttemplate.posts.ui
+package io.github.ciriti.posts.ui
 
 import androidx.lifecycle.viewModelScope
-import com.example.posttemplate.posts.domain.service.PostsService
-import com.example.posttemplate.ui.components.BaseViewModel
+import io.github.ciriti.posts.domain.service.PostsService
+import io.github.ciriti.ui.components.BaseViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow

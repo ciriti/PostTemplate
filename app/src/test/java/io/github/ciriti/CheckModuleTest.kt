@@ -1,10 +1,9 @@
-package com.example.posttemplate
+package io.github.ciriti
 
 import com.example.posttemplate.auth.di.authModule
-import com.example.posttemplate.data.di.dataModule
-import com.example.posttemplate.di.appModule
-import com.example.posttemplate.posts.di.postsModule
-import com.example.posttemplate.profile.di.profileModule
+import io.github.ciriti.data.di.dataModule
+import io.github.ciriti.posts.di.postsModule
+import io.github.ciriti.profile.di.profileModule
 import org.junit.Test
 import org.koin.android.test.verify.androidVerify
 import org.koin.test.KoinTest

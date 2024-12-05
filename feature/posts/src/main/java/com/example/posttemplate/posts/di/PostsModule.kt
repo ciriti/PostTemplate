@@ -1,9 +1,9 @@
-package com.example.posttemplate.posts.di
+package io.github.ciriti.posts.di
 
-import com.example.posttemplate.posts.data.repository.PostsRepository
-import com.example.posttemplate.posts.data.repository.create
-import com.example.posttemplate.posts.domain.service.PostsService
-import com.example.posttemplate.posts.ui.HomeViewModel
+import io.github.ciriti.posts.data.repository.PostsRepository
+import io.github.ciriti.posts.data.repository.create
+import io.github.ciriti.posts.domain.service.PostsService
+import io.github.ciriti.posts.ui.HomeViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 

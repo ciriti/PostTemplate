@@ -1,4 +1,4 @@
-package com.example.posttemplate.util
+package io.github.ciriti.util
 
 sealed class AppFailure(message: String? = null, cause: Throwable? = null) : Throwable(message, cause) {
     class NetworkFailure(message: String? = null, cause: Throwable? = null) : AppFailure(message, cause)

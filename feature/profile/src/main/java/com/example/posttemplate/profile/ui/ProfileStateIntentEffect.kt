@@ -1,6 +1,6 @@
-package com.example.posttemplate.profile.ui
+package io.github.ciriti.profile.ui
 
-import com.example.posttemplate.profile.domain.model.User
+import io.github.ciriti.profile.domain.model.User
 
 data class ProfileState(
     val isLoading: Boolean = false,

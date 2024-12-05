@@ -1,9 +1,9 @@
-package com.example.posttemplate.profile.ui
+package io.github.ciriti.profile.ui
 
 import app.cash.turbine.turbineScope
 import arrow.core.Either
-import com.example.posttemplate.profile.domain.model.User
-import com.example.posttemplate.profile.domain.service.UserService
+import io.github.ciriti.profile.domain.model.User
+import io.github.ciriti.profile.domain.service.UserService
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

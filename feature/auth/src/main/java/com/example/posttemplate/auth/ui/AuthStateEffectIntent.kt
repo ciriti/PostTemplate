@@ -1,4 +1,4 @@
-package com.example.posttemplate.auth.ui
+package io.github.ciriti.auth.ui
 
 data class AuthenticationState(
     val isLoading: Boolean = false

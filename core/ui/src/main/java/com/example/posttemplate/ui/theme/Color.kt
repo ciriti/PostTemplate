@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.theme
+package io.github.ciriti.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

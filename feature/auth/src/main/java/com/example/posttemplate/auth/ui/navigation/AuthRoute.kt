@@ -1,13 +1,13 @@
-package com.example.posttemplate.auth.ui.navigation
+package io.github.ciriti.auth.ui.navigation
 
 import androidx.compose.runtime.collectAsState
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.example.posttemplate.auth.ui.AuthenticationIntent
-import com.example.posttemplate.auth.ui.AuthenticationScreen
-import com.example.posttemplate.auth.ui.AuthenticationViewModel
-import com.example.posttemplate.ui.navigation.Route
+import io.github.ciriti.auth.ui.AuthenticationIntent
+import io.github.ciriti.auth.ui.AuthenticationScreen
+import io.github.ciriti.auth.ui.AuthenticationViewModel
+import io.github.ciriti.ui.navigation.Route
 
 fun NavGraphBuilder.authenticationRoute(
     navController: NavHostController,

@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.components
+package io.github.ciriti.ui.components
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.SharedFlow

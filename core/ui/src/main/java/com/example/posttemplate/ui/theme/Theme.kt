@@ -1,4 +1,4 @@
-package com.example.posttemplate.ui.theme
+package io.github.ciriti.ui.theme
 
 import android.app.Activity
 import android.os.Build

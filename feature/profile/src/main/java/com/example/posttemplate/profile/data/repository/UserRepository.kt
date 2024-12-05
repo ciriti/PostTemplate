@@ -1,15 +1,15 @@
-package com.example.posttemplate.profile.data.repository
+package io.github.ciriti.profile.data.repository
 
 import arrow.core.Either
-import com.example.posttemplate.data.local.AddressEntity
-import com.example.posttemplate.data.local.CompanyEntity
-import com.example.posttemplate.data.local.UserDao
-import com.example.posttemplate.data.local.UserEntity
-import com.example.posttemplate.data.models.AddressDto
-import com.example.posttemplate.data.models.CompanyDto
-import com.example.posttemplate.data.models.UserDto
-import com.example.posttemplate.data.remote.ApiService
-import com.example.posttemplate.util.check
+import io.github.ciriti.data.local.AddressEntity
+import io.github.ciriti.data.local.CompanyEntity
+import io.github.ciriti.data.local.UserDao
+import io.github.ciriti.data.local.UserEntity
+import io.github.ciriti.data.models.AddressDto
+import io.github.ciriti.data.models.CompanyDto
+import io.github.ciriti.data.models.UserDto
+import io.github.ciriti.data.remote.ApiService
+import io.github.ciriti.util.check
 
 interface UserRepository {
     suspend fun getUserById(id: Int): Either<Throwable, UserDto>

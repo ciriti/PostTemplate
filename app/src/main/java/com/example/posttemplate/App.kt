@@ -1,11 +1,11 @@
-package com.example.posttemplate
+package io.github.ciriti
 
 import android.app.Application
-import com.example.posttemplate.data.di.dataModule
-import com.example.posttemplate.di.appModule
 import com.example.posttemplate.auth.di.authModule
-import com.example.posttemplate.posts.di.postsModule
-import com.example.posttemplate.profile.di.profileModule
+import io.github.ciriti.data.di.dataModule
+import io.github.ciriti.di.appModule
+import io.github.ciriti.posts.di.postsModule
+import io.github.ciriti.profile.di.profileModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

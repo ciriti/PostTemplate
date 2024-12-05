@@ -3,10 +3,23 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ktlint)
+    `maven-publish`
+    signing
+    id("org.jetbrains.dokka") version "1.9.0"
 }
 
+apply(from = rootDir.path + "/scripts/publish-mavencentral.gradle")
+
+val GROUP_ID: String by project
+
+println("====== groupId $GROUP_ID ===========")
+
+group = project.property("GROUP_ID") as String
+version =
+    project.property("version_name") as String
+
 android {
-    namespace = "com.example.posttemplate.profile"
+    namespace = "io.github.ciriti.profile"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -94,4 +107,24 @@ dependencies {
     testImplementation(libs.koin.test)
     testImplementation(libs.koin.test.junit4)
     testImplementation(libs.koin.android.test)
+}
+
+tasks.register("printAllTask"){
+    description = "Print all tasks"
+    group = "MyCustomGroup"
+    onlyIf{
+        true
+    }
+    doFirst {  println("Starting to print all tasks...") }
+    doLast {
+        tasks
+        .filter { it.path.contains(project.name) }
+        .groupBy { it.group }
+        .forEach { group, tasks ->
+            println("========   group $group ===========")
+            tasks.forEach { task ->
+                println("name ${task.name} path ${task.path}")
+            }
+        }
+    }
 }

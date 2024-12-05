@@ -1,10 +1,10 @@
 [![Android CI](https://github.com/ciriti/MultiMuduleBestPractices/actions/workflows/android-ci.yml/badge.svg)](https://github.com/ciriti/MultiMuduleBestPractices/actions/workflows/android-ci.yml)
 
-# MultiModuleBestPractices
+# MultiMuduleProject
 
 ## Introduction
 
-`MultiModuleBestPractices` is an Android application designed with a modular architecture to promote scalability, testability, and maintainability. It demonstrates best practices for structuring multi-module Android apps using modern Android development tools like Jetpack Compose, Kotlin Coroutines, and Dependency Injection (DI).
+`MultiMuduleProject` is an Android application designed with a modular architecture to promote scalability, testability, and maintainability. It demonstrates best practices for structuring multi-module Android apps using modern Android development tools like Jetpack Compose, Kotlin Coroutines, and Dependency Injection (DI).
 
 ---
 
@@ -101,13 +101,13 @@ The application follows **Clean Architecture** principles, organized into featur
 ### Updated Directory Structure
 
 ```
-MultiModuleBestPractices/
+MultiMuduleProject/
 ├── app
 │   ├── manifests
 │   ├── kotlin+java
-│   │   ├── com.example.posttemplate.di
+│   │   ├── io.github.ciriti.di
 │   │   │   └── AppModule.kt
-│   │   ├── com.example.posttemplate.ui.navigation
+│   │   ├── io.github.ciriti.ui.navigation
 │   │   │   ├── DrawerViewModel.kt
 │   │   │   └── SetupNavGraph.kt
 │   │   ├── App.kt
@@ -189,8 +189,8 @@ MultiModuleBestPractices/
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/multimodulebestpractices.git
-   cd multimodulebestpractices
+   git clone git@github.com:ciriti/MultiMuduleProject.git
+   cd MultiMuduleProject
    ```
 
 2. Open the project in Android Studio.

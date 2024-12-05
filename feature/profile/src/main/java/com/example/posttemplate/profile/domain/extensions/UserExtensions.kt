@@ -1,15 +1,15 @@
-package com.example.posttemplate.profile.domain.extensions
+package io.github.ciriti.profile.domain.extensions
 
-import com.example.posttemplate.data.local.AddressEntity
-import com.example.posttemplate.data.local.CompanyEntity
-import com.example.posttemplate.data.local.UserEntity
-import com.example.posttemplate.data.models.AddressDto
-import com.example.posttemplate.data.models.CompanyDto
-import com.example.posttemplate.data.models.UserDto
-import com.example.posttemplate.profile.domain.model.Address
-import com.example.posttemplate.profile.domain.model.Company
-import com.example.posttemplate.profile.domain.model.User
-import com.example.posttemplate.util.fail
+import io.github.ciriti.data.local.AddressEntity
+import io.github.ciriti.data.local.CompanyEntity
+import io.github.ciriti.data.local.UserEntity
+import io.github.ciriti.data.models.AddressDto
+import io.github.ciriti.data.models.CompanyDto
+import io.github.ciriti.data.models.UserDto
+import io.github.ciriti.profile.domain.model.Address
+import io.github.ciriti.profile.domain.model.Company
+import io.github.ciriti.profile.domain.model.User
+import io.github.ciriti.util.fail
 
 fun UserDto.toDomain(): User {
     return User(

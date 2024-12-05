@@ -1,4 +1,4 @@
-package com.example.posttemplate.profile.domain.model
+package io.github.ciriti.profile.domain.model
 
 data class User(
     val id: Int,
