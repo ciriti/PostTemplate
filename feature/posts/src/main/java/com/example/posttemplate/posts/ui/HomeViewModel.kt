@@ -30,12 +30,12 @@ class HomeViewModel(
         viewModelScope.launch {
             _state.value = _state.value.copy(isLoading = true)
             service.getPosts().fold(
-                { throwable ->
+                onFailure = { throwable ->
                     _state.value =
                         _state.value.copy(isLoading = false, errorMessage = throwable.message)
                     _effect.emit(HomeEffect.ShowError(throwable.message ?: "Unknown error"))
                 },
-                { posts ->
+                onSuccess = { posts ->
                     _state.value =
                         _state.value.copy(isLoading = false, posts = posts, errorMessage = null)
                 }
