@@ -29,11 +29,11 @@ class ProfileViewModel(
         viewModelScope.launch {
             _state.value = _state.value.copy(isLoading = true)
             service.getUserById(userId).fold(
-                { throwable ->
+                onFailure = { throwable ->
                     _state.value = _state.value.copy(isLoading = false, errorMessage = throwable.message)
                     _effect.emit(ProfileEffect.ShowError(throwable.message ?: "Unknown error"))
                 },
-                { user ->
+                onSuccess = { user ->
                     _state.value = _state.value.copy(isLoading = false, user = user, errorMessage = null)
                 }
             )

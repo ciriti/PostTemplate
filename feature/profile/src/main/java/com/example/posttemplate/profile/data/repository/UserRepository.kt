@@ -1,6 +1,5 @@
 package com.example.posttemplate.profile.data.repository
 
-import arrow.core.Either
 import com.example.posttemplate.data.local.AddressEntity
 import com.example.posttemplate.data.local.CompanyEntity
 import com.example.posttemplate.data.local.UserDao
@@ -9,10 +8,9 @@ import com.example.posttemplate.data.models.AddressDto
 import com.example.posttemplate.data.models.CompanyDto
 import com.example.posttemplate.data.models.UserDto
 import com.example.posttemplate.data.remote.ApiService
-import com.example.posttemplate.util.check
 
 interface UserRepository {
-    suspend fun getUserById(id: Int): Either<Throwable, UserDto>
+    suspend fun getUserById(id: Int): Result<UserDto>
 
     companion object {
         fun create(apiService: ApiService, userDao: UserDao): UserRepository =
@@ -25,11 +23,11 @@ private class UserRepositoryImpl(
     private val userDao: UserDao
 ) : UserRepository {
 
-    override suspend fun getUserById(id: Int): Either<Throwable, UserDto> = check {
+    override suspend fun getUserById(id: Int): Result<UserDto> = kotlin.runCatching {
         // Check local cache
         val cachedUser = userDao.getUserById(id)?.toDto()
         if (cachedUser != null) {
-            return@check cachedUser
+            return@runCatching cachedUser
         }
 
         // Fetch from remote

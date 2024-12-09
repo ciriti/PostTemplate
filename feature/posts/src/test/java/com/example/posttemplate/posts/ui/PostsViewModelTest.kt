@@ -1,7 +1,6 @@
 package com.example.posttemplate.posts.ui
 
 import app.cash.turbine.turbineScope
-import arrow.core.Either
 import com.example.posttemplate.posts.domain.model.Post
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -45,7 +44,7 @@ class PostsViewModelTest {
                 Post(id = 1, title = "Post 1", body = "Body 1", authorId = 1),
                 Post(id = 2, title = "Post 2", body = "Body 2", authorId = 2)
             )
-            coEvery { mockPostService.getPosts() } returns Either.Right(mockPosts)
+            coEvery { mockPostService.getPosts() } returns Result.success(mockPosts)
 
             val states = viewModel.state.testIn(backgroundScope)
             val effects = viewModel.effect.testIn(backgroundScope)
@@ -77,7 +76,7 @@ class PostsViewModelTest {
         turbineScope {
             // Arrange
             val errorMessage = "Failed to load posts"
-            coEvery { mockPostService.getPosts() } returns Either.Left(Exception(errorMessage))
+            coEvery { mockPostService.getPosts() } returns Result.failure(Exception(errorMessage))
 
             val states = viewModel.state.testIn(backgroundScope)
             val effects = viewModel.effect.testIn(backgroundScope)

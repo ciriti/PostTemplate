@@ -1,7 +1,6 @@
 package com.example.posttemplate.profile.ui
 
 import app.cash.turbine.turbineScope
-import arrow.core.Either
 import com.example.posttemplate.profile.domain.model.User
 import com.example.posttemplate.profile.domain.service.UserService
 import io.mockk.coEvery
@@ -53,7 +52,7 @@ class ProfileViewModelTest {
             )
             val expectedState =
                 ProfileState(isLoading = false, user = mockUser, errorMessage = null)
-            coEvery { mockUserService.getUserById(1) } returns Either.Right(mockUser)
+            coEvery { mockUserService.getUserById(1) } returns Result.success(mockUser)
 
             val states = viewModel.state.testIn(backgroundScope)
             val effects = viewModel.effect.testIn(backgroundScope)
@@ -78,7 +77,7 @@ class ProfileViewModelTest {
         turbineScope {
             // Arrange
             val errorMessage = "User not found"
-            coEvery { mockUserService.getUserById(1) } returns Either.Left(Exception(errorMessage))
+            coEvery { mockUserService.getUserById(1) } returns Result.failure(Exception(errorMessage))
             val states = viewModel.state.testIn(backgroundScope)
             val effects = viewModel.effect.testIn(backgroundScope)
 

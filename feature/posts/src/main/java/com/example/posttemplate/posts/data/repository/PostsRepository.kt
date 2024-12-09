@@ -1,14 +1,13 @@
 package com.example.posttemplate.posts.data.repository
 
-import arrow.core.Either
 import com.example.posttemplate.data.local.PostDao
 import com.example.posttemplate.data.local.PostEntity
 import com.example.posttemplate.data.models.PostDto
 import com.example.posttemplate.data.remote.ApiService
 
 interface PostsRepository {
-    suspend fun getPosts(): Either<Throwable, List<PostDto>>
-    suspend fun getPostById(id: Int): Either<Throwable, PostDto>
+    suspend fun getPosts(): Result<List<PostDto>>
+    suspend fun getPostById(id: Int): Result<PostDto>
 
     companion object
 }
@@ -21,12 +20,12 @@ private class PostsRepositoryImpl(
     private val postDao: PostDao
 ) : PostsRepository {
 
-    override suspend fun getPosts(): Either<Throwable, List<PostDto>> =
-        com.example.posttemplate.util.check {
+    override suspend fun getPosts(): Result<List<PostDto>> =
+        kotlin.runCatching {
             // Check local cache
             val cachedPosts = postDao.getAllPosts().map { it.toDto() }
             if (cachedPosts.isNotEmpty()) {
-                return@check cachedPosts
+                return@runCatching cachedPosts
             }
 
             // Fetch from remote
@@ -36,12 +35,12 @@ private class PostsRepositoryImpl(
             remotePosts
         }
 
-    override suspend fun getPostById(id: Int): Either<Throwable, PostDto> =
-        com.example.posttemplate.util.check {
+    override suspend fun getPostById(id: Int): Result<PostDto> =
+        kotlin.runCatching {
             // Check local cache
             val cachedPost = postDao.getPostById(id)?.toDto()
             if (cachedPost != null) {
-                return@check cachedPost
+                return@runCatching cachedPost
             }
 
             // Fetch from remote

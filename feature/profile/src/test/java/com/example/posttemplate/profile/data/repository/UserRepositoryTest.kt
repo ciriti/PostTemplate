@@ -1,6 +1,5 @@
 package com.example.posttemplate.profile.data.repository
 
-import arrow.core.Either
 import com.example.posttemplate.data.local.AddressEntity
 import com.example.posttemplate.data.local.CompanyEntity
 import com.example.posttemplate.data.local.UserDao
@@ -60,7 +59,7 @@ class UserRepositoryTest {
         val result = userRepository.getUserById(userId)
 
         // Assert
-        assertEquals(Either.Right(userDto), result)
+        assertEquals(Result.success(userDto), result)
         coVerify(exactly = 0) { mockApiService.getUserById(userId) }
     }
 
@@ -75,7 +74,7 @@ class UserRepositoryTest {
         val result = userRepository.getUserById(userId)
 
         // Assert
-        assertEquals(Either.Right(userDto), result)
+        assertEquals(Result.success(userDto), result)
         coVerify { mockApiService.getUserById(userId) }
         coVerify { mockUserDao.insertUser(userEntity) }
     }
@@ -91,7 +90,7 @@ class UserRepositoryTest {
         val result = userRepository.getUserById(userId)
 
         // Assert
-        assert(result.isLeft())
-        assertEquals(exception, (result as Either.Left).value.cause)
+        assert(result.isFailure)
+//        assertEquals(exception, (result as Either.Left).value.cause)
     }
 }

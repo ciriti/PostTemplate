@@ -41,8 +41,6 @@ android {
 dependencies {
     implementation(project(":core:util"))
 
-    implementation(libs.arrow.core)
-
     implementation(libs.koin.core)
     implementation(libs.koin.androidx.compose.navigation)
     implementation(project.dependencies.platform(libs.koin.bom))

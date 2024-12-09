@@ -67,8 +67,6 @@ dependencies {
     implementation(libs.okhttp.logging)
     implementation(libs.retrofit.gson)
 
-    implementation(libs.arrow.core)
-
     implementation(libs.androidx.material3)
 
     testImplementation(libs.junit)
