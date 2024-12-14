@@ -1,15 +1,12 @@
 package com.example.posttemplate.posts.domain.service
 
-import arrow.core.Either
-import arrow.core.getOrHandle
 import com.example.posttemplate.posts.data.repository.PostsRepository
 import com.example.posttemplate.posts.domain.extensions.toDomain
 import com.example.posttemplate.posts.domain.model.Post
-import com.example.posttemplate.util.check
 
 interface PostsService {
-    suspend fun getPosts(): Either<Throwable, List<Post>>
-    suspend fun getPostById(id: Int): Either<Throwable, Post>
+    suspend fun getPosts(): Result<List<Post>>
+    suspend fun getPostById(id: Int): Result<Post>
 
     companion object {
         fun create(postRepository: PostsRepository): PostsService =
@@ -21,17 +18,17 @@ private class PostsServiceImpl(
     private val postRepository: PostsRepository
 ) : PostsService {
 
-    override suspend fun getPosts(): Either<Throwable, List<Post>> =
-        check {
-            val postsDto = postRepository.getPosts().getOrHandle { throw it }
+    override suspend fun getPosts(): Result<List<Post>> =
+        runCatching {
+            val postsDto = postRepository.getPosts().getOrElse { throw it }
             postsDto.map { postDto ->
                 postDto.toDomain(postDto.userId)
             }
         }
 
-    override suspend fun getPostById(id: Int): Either<Throwable, Post> =
-        check {
-            val postDto = postRepository.getPostById(id).getOrHandle { throw it }
+    override suspend fun getPostById(id: Int): Result<Post> =
+        runCatching {
+            val postDto = postRepository.getPostById(id).getOrElse { throw it }
             postDto.toDomain(postDto.userId)
         }
 }

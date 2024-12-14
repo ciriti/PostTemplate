@@ -35,7 +35,6 @@ android {
 
 dependencies {
 
-    implementation(libs.arrow.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

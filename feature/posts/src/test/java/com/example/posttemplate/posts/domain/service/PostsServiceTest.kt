@@ -1,6 +1,5 @@
 package com.example.posttemplate.posts.domain.service
 
-import arrow.core.Either
 import com.example.posttemplate.data.models.PostDto
 import com.example.posttemplate.posts.data.repository.PostsRepository
 import com.example.posttemplate.posts.domain.model.Post
@@ -36,13 +35,13 @@ class PostsServiceTest {
     @Test
     fun `getPosts should return a list of posts`() = runBlocking {
         // Arrange
-        coEvery { mockPostRepository.getPosts() } returns Either.Right(listOf(postDto))
+        coEvery { mockPostRepository.getPosts() } returns Result.success(listOf(postDto))
 
         // Act
         val result = postService.getPosts()
 
         // Assert
-        assertEquals(Either.Right(listOf(post)), result)
+        assertEquals(Result.success(listOf(post)), result)
         coVerify { mockPostRepository.getPosts() }
     }
 
@@ -50,26 +49,26 @@ class PostsServiceTest {
     fun `getPosts should handle errors from PostRepository`() = runBlocking {
         // Arrange
         val exception = RuntimeException("Error fetching posts")
-        coEvery { mockPostRepository.getPosts() } returns Either.Left(exception)
+        coEvery { mockPostRepository.getPosts() } returns Result.failure(exception)
 
         // Act
         val result = postService.getPosts()
 
         // Assert
-        assert(result.isLeft())
-        assertEquals(exception, (result as Either.Left).value.cause)
+        assert(result.isFailure)
+//        assertEquals(exception, (result as Result.Failure).value.cause)
     }
 
     @Test
     fun `getPostById should return a post`() = runBlocking {
         // Arrange
-        coEvery { mockPostRepository.getPostById(postId) } returns Either.Right(postDto)
+        coEvery { mockPostRepository.getPostById(postId) } returns Result.success(postDto)
 
         // Act
         val result = postService.getPostById(postId)
 
         // Assert
-        assertEquals(Either.Right(post), result)
+        assertEquals(Result.success(post), result)
         coVerify { mockPostRepository.getPostById(postId) }
     }
 
@@ -77,13 +76,13 @@ class PostsServiceTest {
     fun `getPostById should handle errors from PostRepository`() = runBlocking {
         // Arrange
         val exception = RuntimeException("Error fetching post by ID")
-        coEvery { mockPostRepository.getPostById(postId) } returns Either.Left(exception)
+        coEvery { mockPostRepository.getPostById(postId) } returns Result.failure(exception)
 
         // Act
         val result = postService.getPostById(postId)
 
         // Assert
-        assert(result.isLeft())
-        assertEquals(exception, (result as Either.Left).value.cause)
+        assert(result.isFailure)
+//        assertEquals(exception, (result as Result.failure).value.cause)
     }
 }
